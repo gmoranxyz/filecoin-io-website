@@ -1,0 +1,20 @@
+{
+  "singleQuote": true,
+  "semi": false,
+  "tailwindFunctions": ["clsx"],
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.yml",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ],
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
