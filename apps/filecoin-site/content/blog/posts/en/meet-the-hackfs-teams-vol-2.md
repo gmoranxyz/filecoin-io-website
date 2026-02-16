@@ -1,6 +1,6 @@
 ---
 aliases:
-  - /blog/hackfs-teams-vol-2/
+  - /blog/meet-the-hackfs-teams-vol-2/
 author: ""
 categories:
   - updates
@@ -26,11 +26,11 @@ _template: blog_detail
 
 _Welcome to the seventh installment of the Filecoin Community Highlights series, which features users and developers building essential tools and services on the Filecoin network. We hope this post,_ [_as well as others_](https://filecoin.io/blog/community-jonathan-schwartz-owl/) _in this series, inspires you to join the movement and build world-class tools for the distributed web._
 
-Last week we [highlighted](https://filecoin.io/blog/hackfs-teams-vol-1/) OMO Earth, Pygate, Unchained Index, and Padlock – four bootstrapping teams taking part in [HackFS](https://hackfs.com/), a month-long hackathon co-hosted by Protocol Labs and [ETH Global](https://ethglobal.co/), designed to showcase the power of Web3. This week, we talked to three more teams to learn more about their work, how they got involved with HackFS and why they’re building on Filecoin.
+Last week we [highlighted](https://filecoin.io/blog/meet-the-hackfs-teams-vol-1/) OMO Earth, Pygate, Unchained Index, and Padlock – four bootstrapping teams taking part in [HackFS](https://hackfs.com/), a month-long hackathon co-hosted by Protocol Labs and [ETH Global](https://ethglobal.co/), designed to showcase the power of Web3. This week, we talked to three more teams to learn more about their work, how they got involved with HackFS and why they’re building on Filecoin.
 
 ## Team: [Kazan](https://github.com/samikshan/kazan)
 
-![Kazan](https://filecoin.io/vintage/images/blog/hfs-kazan.png)
+![Kazan](https://filecoin.io/blog/hfs-kazan.png)
 
 > "If I play guitar and put out a track, someone else can add drums, and another person can add vocals, and the collaboration goes on and on. The possibilities are endless."
 >
@@ -62,7 +62,7 @@ Initially, we didn’t intend to build this exclusively for crypto payroll. But 
 
 ## Team: [EduVault](https://github.com/eduvault)
 
-![EduVault](https://filecoin.io/vintage/images/blog/hfs-eduvault.png)
+![EduVault](https://filecoin.io/blog/hfs-eduvault.png)
 
 **Team members:** Jacob Cohen-Rosenthal, Aqeel Mohammad, Monica Kumaran, and Brian Schwartz
 
@@ -72,7 +72,7 @@ Today, many of the online platforms we use, including EdTech platforms, collect 
 
 Ultimately, with EduVault, you’ll be able to bring your data with you between apps, and sync the information between education apps. This interoperability could unlock powerful new use cases and create better learning experiences.
 
-![Eduvault MVP](https://filecoin.io/vintage/images/blog/hfs-eduvault-mvp.png)
+![Eduvault MVP](https://filecoin.io/blog/hfs-eduvault-mvp.png)
 
 Until now, it was very difficult to build a cloud that was private. To truly own your own data you need two things: access control and availability. Access control is achievable by having your data encrypted. Availability means that no one else can take down your data. For example, you could encrypt your database and put it on a centralized cloud storage service, but that service could one day restrict your access.
 

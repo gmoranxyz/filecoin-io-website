@@ -1,6 +1,6 @@
 ---
 aliases:
-  - /blog/hackfs-teams-vol-1/
+  - /blog/meet-the-hackfs-teams-vol-1/
 author: ""
 categories:
   - updates
@@ -45,7 +45,7 @@ Our goal is to have a full working prototype of the platform by the end of July.
 
 ## Team: Pygate
 
-![Pygate Diagram](https://filecoin.io/vintage/images/blog/hfs-pygate.png)
+![Pygate Diagram](https://filecoin.io/blog/hfs-pygate.png)
 
 **Team members:** Peter Van Garderen, Leonard Ge, Antreas Pogiatzis, Chinonso Eze, and Art Richards
 
@@ -59,7 +59,7 @@ Each project is intended to serve as a stand-alone component that can be used in
 
 ## Team: Unchained Index
 
-![TrueBlocks](https://filecoin.io/vintage/images/blog/hfs-trueblocks.png)
+![TrueBlocks](https://filecoin.io/blog/hfs-trueblocks.png)
 
 **Team members:** Thomas Jay Rush and Meriam Zandy
 
@@ -77,7 +77,7 @@ Thomas says: “I’ve been working in tech for a long time. I was there when we
 
 ## Team: Padlock
 
-![Padlock](https://filecoin.io/vintage/images/blog/hfs-padlock.jpg)
+![Padlock](https://filecoin.io/blog/hfs-padlock.jpg)
 
 **Team members:** Can Kisagun, Taariq Levack, Michal Schachman, Ahmed Tawfeeq, and James Waugh
 

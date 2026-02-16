@@ -1,6 +1,6 @@
 ---
 aliases:
-  - /blog/go-filecoin-0.1.4-release/
+  - /blog/go-filecoin-0-1-4-release/
 author: ""
 categories:
   - updates
