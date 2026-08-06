@@ -45,3 +45,6 @@ rss.xml
 
 # sentry Config File
 .env.sentry-build-plugin
+
+# keep the env template tracked despite .env* above
+!.env.example
