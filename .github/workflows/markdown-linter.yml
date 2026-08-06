@@ -1,0 +1,22 @@
+name: Markdown Linter
+
+on:
+  pull_request:
+    paths:
+      - apps/**/*.md
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Run markdownlint
+        uses: davidanson/markdownlint-cli2-action@v23
+        with:
+          globs: |
+            **/*.md
+            !**/node_modules/**/*.md
+          config: ".markdownlint.jsonc"

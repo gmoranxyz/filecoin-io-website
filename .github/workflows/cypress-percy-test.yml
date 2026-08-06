@@ -1,0 +1,95 @@
+name: Site Cypress and Percy Tests
+
+on:
+  push:
+    paths:
+      - "apps/**"
+      - "packages/**"
+    branches: [main]
+  pull_request:
+    paths:
+      - "apps/**"
+      - "packages/**"
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-e2e-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cypress-run:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.draft == false }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/filecoin-site
+
+    env:
+      BASE_URL: "http://localhost:3000"
+      HUBSPOT_PORTAL_ID: "a-random-key-so-that-ci-builds-dont-fail"
+      HUBSPOT_PROVIDE_STORAGE_FORM_ID: "a-random-key-so-that-ci-builds-dont-fail"
+      HUBSPOT_STORE_DATA_FORM_ID: "a-random-key-so-that-ci-builds-dont-fail"
+      NEXT_TELEMETRY_DISABLED: 1
+      NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install Dependencies
+        working-directory: .
+        run: npm ci --prefer-offline
+
+      - name: Build Project
+        working-directory: .
+        run: npx turbo run build --filter="./apps/filecoin-site"
+
+      - name: Start server (prod) on :3000
+        run: |
+          npm start &
+          echo "Waiting for server to start..."
+          npx wait-on $BASE_URL/blog
+          # tiny settle to let hydration/ISR finish
+          sleep 2
+
+      - name: Determine Test Type
+        id: test-type
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            BRANCH_NAME="${{ github.head_ref }}"
+            COMMIT_MESSAGE="${{ github.event.pull_request.title }}"
+          else
+            BRANCH_NAME="${{ github.ref_name }}"
+            COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+          fi
+
+          if [[ "$BRANCH_NAME" == cms/* ]] || [[ "$COMMIT_MESSAGE" == *"[skip percy]"* ]]; then
+            echo "skip_percy=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip_percy=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Cypress only (skip Percy)
+        if: steps.test-type.outputs.skip_percy == 'true'
+        env:
+          CYPRESS_BASE_URL: ${{ env.BASE_URL }}
+        run: npx cypress run --browser chrome
+
+      - name: Run Cypress + Percy
+        if: steps.test-type.outputs.skip_percy == 'false'
+        env:
+          CYPRESS_BASE_URL: ${{ env.BASE_URL }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FILECOIN_SITE }}
+          PERCY_BRANCH: ${{ github.head_ref || github.ref_name }}
+          PERCY_BASE_BRANCH: ${{ github.base_ref || 'main' }}
+        run: npx percy exec -- npx cypress run --browser chrome

@@ -25,9 +25,12 @@
     "@filecoin-foundation/ui": "0.0.0",
     "@filecoin-foundation/ui-filecoin": "0.9.1",
     "@filecoin-foundation/utils": "0.0.0",
+    "@headlessui/react": "^2.2.9",
     "@hookform/resolvers": "^5.2.2",
     "@phosphor-icons/react": "^2.1.10",
     "@sentry/nextjs": "^10.46.0",
+    "@tanstack/react-table": "^8.21.3",
+    "clsx": "^2.1.1",
     "fast-glob": "^3.3.3",
     "feed": "^5.2.0",
     "gray-matter": "^4.0.3",
@@ -41,8 +44,10 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-hook-form": "^7.72.0",
+    "schema-dts": "^2.0.0",
     "swr": "^2.4.1",
-    "tinacms": "^3.4.1"
+    "tinacms": "^3.4.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

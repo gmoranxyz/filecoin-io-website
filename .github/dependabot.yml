@@ -1,0 +1,31 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+    versioning-strategy: increase
+    commit-message:
+      prefix: "[DEPENDABOT] Weekly npm updates"
+      include: "scope"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    groups:
+      actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "[DEPENDABOT] Weekly GitHub Actions updates"
+      include: "scope"
