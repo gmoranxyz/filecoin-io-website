@@ -6,3 +6,8 @@ node_modules
 CLAUDE.md
 .claude/settings.local.json
 /.claude
+.env*
+
+# cypress artifacts
+apps/filecoin-site/cypress/screenshots/
+apps/filecoin-site/cypress/videos/

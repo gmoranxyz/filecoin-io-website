@@ -41,5 +41,5 @@ jobs:
           payload: |
             {
               "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
-              "text": "Link Checker Results for filecoin-site: ${{ steps.lychee.outcome == 'success' && '✅ All links OK' || '❌ Broken links found' }} - <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Details>"
+              "text": "Link Checker Results for filecoin.io (filecoin-io-website): ${{ steps.lychee.outcome == 'success' && '✅ All links OK' || '❌ Broken links found' }} - <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Details>"
             }

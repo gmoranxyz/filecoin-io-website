@@ -1,6 +1,6 @@
-# Filecoin Site
+# filecoin-io-website
 
-This repository contains the code and content for [filecoin.io](https://filecoin.io), extracted from the [Filecoin Foundation monorepo](https://github.com/FilecoinFoundationWeb/filecoin-foundation). It keeps the same layout and tooling: a Turborepo with npm [workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces).
+This repository contains the code and content for **only** [filecoin.io](https://filecoin.io). It was extracted from the [filecoin-foundation monorepo](https://github.com/FilecoinFoundationWeb/filecoin-foundation) — which continues to host the other sites (fil.org, ffdweb.org, uxit.fil.org) — and keeps the same layout and tooling: a Turborepo with npm [workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces).
 
 ## Overview
 
