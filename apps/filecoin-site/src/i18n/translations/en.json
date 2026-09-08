@@ -107,9 +107,9 @@
         }
       },
       "snippet": {
-        "credentialsComment": "Get credentials from your Filecoin developer dashboard",
-        "uploadComment": "Store a file and receive its verifiable content identifier",
-        "retrieveComment": "Fetch it back from any provider holding a valid proof"
+        "credentialsComment": "Get credentials from your developer dashboard",
+        "uploadComment": "Store a file, get back its content identifier",
+        "retrieveComment": "Retrieve it from any provider with a valid proof"
       },
       "cta": {
         "main": "Read the quickstart",

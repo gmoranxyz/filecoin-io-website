@@ -30,7 +30,7 @@ export function ProductSpotlight({
   cta,
 }: ProductSpotlightProps) {
   return (
-    <div className="grid grid-cols-1 items-center gap-15 xl:grid-cols-2 xl:gap-20">
+    <div className="grid grid-cols-1 items-center gap-15 xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] xl:gap-16">
       <div className="flex flex-col gap-10">
         <div className="space-y-6">
           <p className="text-brand-400 text-sm font-medium tracking-wide uppercase">

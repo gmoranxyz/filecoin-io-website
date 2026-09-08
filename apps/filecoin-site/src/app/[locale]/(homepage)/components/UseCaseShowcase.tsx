@@ -89,7 +89,10 @@ export function UseCaseShowcase({ useCases }: UseCaseShowcaseProps) {
             >
               <div className="flex flex-col justify-between gap-12">
                 <div className="space-y-8">
-                  <Heading tag="h3" variant="section-heading">
+                  <Heading
+                    tag="h3"
+                    className="text-3xl/10 font-medium sm:tracking-tight md:text-4xl/11 xl:text-5xl/15"
+                  >
                     {headline}
                   </Heading>
 

@@ -35,7 +35,7 @@ export function AudienceSelector({ audiences }: AudienceSelectorProps) {
         {audiences.map(({ id, label }) => (
           <Tab
             key={id}
-            className="group data-selected:border-brand-700 flex shrink-0 cursor-pointer items-center justify-between gap-4 rounded-full border border-(--color-border-muted) px-5 py-3 text-left text-lg font-medium text-(--color-paragraph-text) transition-colors hover:text-(--color-text-base) focus:outline-none data-focus:bg-(--color-card-background-hover) data-selected:text-(--color-text-base) lg:rounded-none lg:border-x-0 lg:border-t-0 lg:border-b lg:px-0 lg:py-5 lg:text-2xl/8 lg:data-selected:border-(--color-border-muted) xl:text-3xl/10"
+            className="group data-selected:border-brand-700 flex shrink-0 cursor-pointer items-center justify-between gap-4 rounded-full border border-(--color-border-muted) px-5 py-3 text-left text-lg font-medium text-(--color-paragraph-text) transition-colors hover:text-(--color-text-base) focus:outline-none data-focus:bg-(--color-card-background-hover) data-selected:text-(--color-text-base) lg:rounded-none lg:border-x-0 lg:border-t-0 lg:border-b lg:px-0 lg:py-5 lg:text-2xl/8 lg:data-selected:border-(--color-border-muted)"
           >
             <span>{label}</span>
             <span className="text-brand-700 hidden opacity-0 transition-opacity group-data-selected:opacity-100 lg:block">
@@ -49,12 +49,12 @@ export function AudienceSelector({ audiences }: AudienceSelectorProps) {
         {audiences.map(({ id, headline, description, cta, image }) => (
           <TabPanel
             key={id}
-            className="grid grid-cols-1 gap-10 focus:outline-none md:grid-cols-2 md:gap-12"
+            className="grid grid-cols-1 gap-10 focus:outline-none md:grid-cols-2 md:gap-12 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:gap-16"
           >
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col justify-center gap-8">
               <Heading
                 tag="h3"
-                className="text-2xl/8 font-medium sm:text-3xl/10"
+                className="text-2xl/8 font-medium sm:text-3xl/10 xl:text-4xl/11"
               >
                 {headline}
               </Heading>
@@ -62,7 +62,7 @@ export function AudienceSelector({ audiences }: AudienceSelectorProps) {
                 {description.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="text-pretty text-(--color-paragraph-text)"
+                    className="text-pretty text-(--color-paragraph-text) lg:text-lg/7"
                   >
                     {paragraph}
                   </p>
@@ -75,7 +75,7 @@ export function AudienceSelector({ audiences }: AudienceSelectorProps) {
               </div>
             </div>
 
-            <div className="relative aspect-4/5 overflow-hidden rounded-2xl border border-(--color-border-muted)">
+            <div className="relative aspect-4/5 overflow-hidden rounded-2xl border border-(--color-border-muted) md:aspect-auto md:min-h-96">
               <Image
                 fill
                 src={image.data}
