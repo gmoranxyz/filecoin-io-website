@@ -68,6 +68,15 @@ audiences → gray catalog → dark CTA. Alternation follows the existing site.
 7. **Proof metrics.** Which four numbers? Current picks: capacity, 1 TiB+ orgs, proof success, starting price. "Uptime" was suggested but the network has no single uptime figure.
 8. **Metadata.** New `<title>`/description are placeholder; SEO owner to sign off (this page carries the site's search authority).
 
+## Site-wide change shipped with this work
+
+`src/app/_styles/globals.css` ramps the root font-size from 16px at 1536px to
+20px at ~2070px viewports. Every rem-based token (type, spacing, image boxes)
+scales with it while the 1440px `Container` stays fixed, so wide screens no
+longer show small type in a sea of margin. This affects all pages at ≥1536px,
+not only the homepage; below that nothing changes. Percy runs at narrower
+widths, so it will not flag it.
+
 ## Process notes
 
 - Every placeholder is grep-able: `rg -n "PLACEHOLDER" apps/filecoin-site/src/app/\[locale\]/\(homepage\)`.
