@@ -1,105 +1,196 @@
 {
   "/": {
-    "hero": {
-      "headline": "A decentralized, efficient, and robust foundation for humanity's information",
-      "description": "Filecoin is the world's largest decentralized storage network, built to keep data secure, verifiable, and free from centralized control.",
-      "announcement": "Announcing Filecoin Onchain Cloud",
-      "cta": {
-        "main": "Store data",
-        "secondary": "Start building"
-      }
-    },
     "metadata": {
-      "title": "Filecoin | World's Largest Decentralized Storage Network for Humanity's Data",
-      "description": "Preserve humanity's most important information on Filecoin, the decentralized storage network with verifiable integrity, global redundancy, and no centralized control. Build apps, store data securely, or become a storage provider today."
+      "title": "Filecoin | Verifiable cloud storage for developers and enterprises",
+      "description": "Build verifiable storage, fast retrieval, and programmable payments into your products on Filecoin, the world's largest decentralized storage network. Start with one API call or talk to sales."
+    },
+    "hero": {
+      "eyebrow": "Filecoin Cloud",
+      "headlineStrong": "Storing the internet's most valuable information",
+      "headlineMuted": "for the developers and enterprises building on top of it.",
+      "description": "Filecoin gives you verifiable storage, fast retrieval, and programmable payments as one cloud you can build into your own products. Every byte is proven onchain, so you never have to take a provider's word for it.",
+      "cta": {
+        "main": "Start building",
+        "secondary": "Talk to sales"
+      }
     },
     "trustedBy": {
-      "title": "Join industry leaders storing with Filecoin"
+      "title": "Trusted by teams preserving the world's most important data"
     },
-    "byTheNumbers": {
-      "title": "Filecoin by the numbers",
-      "storageCapacity": {
-        "subTitle": "network storage capacity",
-        "description": "Enough to store Wikipedia's text 22 million times over"
+    "proof": {
+      "title": "Infrastructure at internet scale",
+      "description": "Filecoin is the world's largest decentralized storage network, and every figure below is verifiable onchain.",
+      "capacity": {
+        "label": "Storage capacity",
+        "description": "Committed across thousands of independent storage providers worldwide"
       },
       "clients": {
-        "subTitle": "large clients",
-        "description": "With more than 1TiB active data"
+        "label": "Organizations storing 1 TiB+",
+        "description": "From national archives to AI data pipelines"
       },
-      "smartContracts": {
-        "subTitle": "smart contracts",
-        "description": "Deployed via the Filecoin Virtual Machine (FVM)"
+      "proofSuccess": {
+        "label": "Storage proofs verified",
+        "description": "Providers prove they hold your data, every day, onchain"
+      },
+      "startingPrice": {
+        "label": "Per TB per month",
+        "description": "Transparent, programmable pricing with no egress surprises"
       }
     },
-    "reshapingData": {
-      "title": "Filecoin is reshaping how the world stores data",
-      "subTitle": "A better foundation for the next generation of the web.",
-      "paragraph1": "Today, a small handful of corporations control most of the world's data, creating centralized gatekeepers that introduce single points of failure.",
-      "paragraph2": "Filecoin offers a fundamentally different approach to data storage: distributing data across a decentralized, global network secured by cryptographic proofs, ensuring greater security and resilience.",
-      "paragraph3": "From cultural archives to scientific research, petabytes of data are already stored on Filecoin. The decentralized model empowers users with true autonomy over their information, building a foundation for a more open, resilient, and user-controlled web.",
-      "storeDataCta": "Store data",
-      "becomeProviderCta": "Become a storage provider"
+    "products": {
+      "warmStorage": "Warm Storage",
+      "archivalStorage": "Archival storage",
+      "filecoinPin": "Filecoin Pin",
+      "retrieval": "Filecoin Beam",
+      "ipfsGateways": "IPFS retrieval",
+      "filecoinPay": "Filecoin Pay",
+      "usdfc": "USDFC",
+      "synapseSdk": "Synapse SDK",
+      "smartContracts": "Smart contracts (FVM)",
+      "documentation": "Documentation"
     },
-    "ipfs": {
-      "title": "The incentive layer for IPFS",
-      "paragraph1": "Filecoin adds incentivized, persistent storage to the InterPlanetary File System (IPFS), a peer-to-peer network for content-addressable data, creating a powerful, versatile, and long-term home for data.",
-      "paragraph2": "Filecoin makes it easy for IPFS users to reliably store their data directly on the Filecoin network. The result is a decentralized, storage layer opening up an entirely new class of applications and use cases.",
-      "learnMoreCta": "Learn more about IPFS"
-    },
-    "comparison": {
-      "title": "How Filecoin storage stacks up",
-      "description": "How decentralized storage compares to traditional cloud storage",
-      "storeDataCta": "Store data",
-      "learnMoreCta": "Learn more about Filecoin",
-      "traditionalCloud": "Traditional Cloud",
-      "resilience": {
-        "filecoin": "Resilience through global redundancy",
-        "traditionalCloud": "Single points of failure"
+    "useCases": {
+      "title": "Built into real products",
+      "description": "Data platforms, archives, and developer tools already run on Filecoin. See which products they use and why.",
+      "cta": "View all case studies",
+      "tabListLabel": "Select a customer story",
+      "productsUsedLabel": "Products used",
+      "readMore": "Read the {name} story",
+      "akave": {
+        "headline": "Akave runs S3-compatible object storage for AI workloads on Filecoin",
+        "quote": "Our customers keep the S3 workflow they already know and gain something no hyperscaler offers: cryptographic proof that their data is exactly where we say it is.",
+        "attribution": "[Name], [Title], Akave (placeholder quote)"
       },
-      "censorship": {
-        "filecoin": "Censorship resistance by design",
-        "traditionalCloud": "Susceptible to censorship and takedowns"
+      "cidgravity": {
+        "headline": "CIDgravity gives Nextcloud users a verifiable storage backend",
+        "quote": "We plugged Filecoin in behind a tool millions of people already use. Nobody had to learn anything new, and every file now carries a proof.",
+        "attribution": "[Name], [Title], CIDgravity (placeholder quote)"
       },
-      "participation": {
-        "filecoin": "Open, permissionless participation",
-        "traditionalCloud": "Controlled by corporate gatekeepers"
+      "starlingLab": {
+        "headline": "Starling Lab preserves human-rights evidence with provable integrity",
+        "quote": "When a record might be challenged in court years from now, you need more than a backup. You need to prove nothing changed. Filecoin gives us that.",
+        "attribution": "[Name], [Title], Starling Lab (placeholder quote)",
+        "imageAlt": "Rows of archival boxes on shelves in a climate-controlled records room."
       },
-      "storage": {
-        "filecoin": "Verifiable storage commitments",
-        "traditionalCloud": "Opaque trust models"
+      "flickrFoundation": {
+        "headline": "Flickr Foundation keeps a century of photography online for the next one",
+        "quote": "Our mandate is a hundred years. Filecoin was the only option where the storage guarantees were enforced by the network, not by a contract.",
+        "attribution": "[Name], [Title], Flickr Foundation (placeholder quote)"
       },
-      "incentives": {
-        "filecoin": "Economic incentives for participants",
-        "traditionalCloud": "Profits flow to shareholders"
+      "internetArchive": {
+        "headline": "Internet Archive adds a verifiable, redundant copy of the web's memory",
+        "quote": "Since 2021 we have stored parts of the archive on Filecoin. It gives us geographic redundancy and a proof trail we simply could not get from a single cloud.",
+        "attribution": "[Name], [Title], Internet Archive (placeholder quote)"
       },
-      "longevity": {
-        "filecoin": "Data outlives institutions",
-        "traditionalCloud": "Data loss if provider fails"
+      "lighthouse": {
+        "headline": "Lighthouse sells pay-once, store-forever storage built on Filecoin",
+        "quote": "Programmable payments let us price storage in a way centralized clouds cannot. Our customers pay once and the network keeps the promise.",
+        "attribution": "[Name], [Title], Lighthouse (placeholder quote)"
       }
     },
-    "buildForFuture": {
-      "title": "Open, scalable, and built for the future",
-      "subTitle": "A decentralized, verifiable storage layer that scales effortlessly.",
-      "description": "Power chain storage, dApps, data-heavy SaaS platforms, immutable archives, and beyond. Accelerate development with open source tools, native IPFS integration, cross-chain data bridges, and FEVM for programmable smart contracts. Build without compromise, knowing you control your data, not centralized gatekeepers.",
-      "startBuildingCta": "Start building",
-      "documentationCta": "Documentation"
+    "spotlight": {
+      "eyebrow": "Filecoin Cloud",
+      "title": "Storage, retrieval, and payments in one SDK",
+      "description": "Filecoin Cloud is Filecoin's programmable infrastructure for developers. Store data with a verified proof, fetch it fast, and pay for exactly what you use, all from one TypeScript SDK and a set of smart contracts you can read.",
+      "features": {
+        "warmStorage": {
+          "title": "Warm Storage with Proof of Data Possession",
+          "description": "Providers prove they hold your data on a fixed schedule. Miss a proof, lose the payment."
+        },
+        "retrieval": {
+          "title": "Fast retrieval with Filecoin Beam",
+          "description": "CDN-class egress for the data you store, paid per byte served."
+        },
+        "payments": {
+          "title": "Programmable payments with Filecoin Pay",
+          "description": "Stream payments in USDFC or FIL. Budgets, rails, and settlements live onchain."
+        }
+      },
+      "snippet": {
+        "credentialsComment": "Get credentials from your Filecoin developer dashboard",
+        "uploadComment": "Store a file and receive its verifiable content identifier",
+        "retrieveComment": "Fetch it back from any provider holding a valid proof"
+      },
+      "cta": {
+        "main": "Read the quickstart",
+        "secondary": "Explore Filecoin Cloud"
+      }
     },
-    "latestNews": {
-      "title": "Latest news",
-      "description": "Insights, updates, ecosystem spotlights, and community stories, directly from the teams building Filecoin.",
-      "viewAllCta": "View all articles"
+    "audiences": {
+      "title": "One network, a path for every team",
+      "description": "Pick the way you want to consume Filecoin: programmable primitives, a managed S3 service, or capacity you supply.",
+      "tabListLabel": "Select your role",
+      "developers": {
+        "label": "Developers",
+        "headline": "Ship verifiable storage in an afternoon",
+        "paragraph1": "Install the Synapse SDK, fund a wallet, and store your first file with a proof attached. No storage provider negotiations, no proprietary formats, no lock-in.",
+        "paragraph2": "Everything is open source and content addressed, so the data you store today is retrievable from any provider tomorrow.",
+        "cta": "Read the docs",
+        "imageAlt": "Two developers pair programming at a laptop."
+      },
+      "enterprises": {
+        "label": "Enterprises",
+        "headline": "Storage your auditors can verify",
+        "paragraph1": "Replace opaque SLAs with cryptographic proofs. Filecoin shows you, onchain, that every replica of your data exists and is intact, every day.",
+        "paragraph2": "Choose programmable primitives for your own products or a managed S3-compatible service through Fil One. Both run on the same verifiable network.",
+        "cta": "Talk to sales"
+      },
+      "startups": {
+        "label": "Startups",
+        "headline": "Cloud economics that scale with you, not against you",
+        "paragraph1": "Storage from $2.50 per TB per month, no egress surprises, and pricing you can read in a smart contract instead of a 40-page rate card.",
+        "paragraph2": "Start on a managed service, move to the SDK when you need control. Your data never has to migrate.",
+        "cta": "Compare storage options"
+      },
+      "dataCenters": {
+        "label": "Data centers",
+        "headline": "Turn spare capacity into recurring revenue",
+        "paragraph1": "Storage providers earn by proving they hold customer data. Filecoin Pay settles in stablecoins, so revenue is predictable.",
+        "paragraph2": "Join thousands of providers already serving enterprises and archives worldwide.",
+        "cta": "Become a storage provider"
+      },
+      "agents": {
+        "label": "AI agents",
+        "headline": "Storage that agents can pay for themselves",
+        "paragraph1": "Give autonomous agents a place to persist memory, artifacts, and datasets with a budget they control through Filecoin Pay.",
+        "paragraph2": "Every write returns a content identifier, so agents and the humans supervising them can verify exactly what was stored.",
+        "cta": "Build with agents",
+        "imageAlt": "Close-up of a computer motherboard and circuitry."
+      }
     },
-    "community": {
-      "title": "Join a vibrant community",
-      "description": "Be part of the movement to build a decentralized, efficient, and robust foundation for humanity's information.",
-      "chatOnSlack": "Chat on Slack",
-      "attendEvent": "Attend a Filecoin event",
-      "getInvolvedGitHub": "Get involved on GitHub",
-      "becomeAmbassador": "Become a Filecoin Orbit ambassador",
-      "images": {
-        "conference": "A large group of people attending a tech conference or workshop, with a speaker presenting on stage and attendees seated on chairs and beanbags, many working on laptops.",
-        "panel": "A man speaks into a microphone during a discussion panel, smiling while other participants listen attentively beside him.",
-        "presentation": "A woman gives a presentation to a seated audience, several participants raising their hands to ask questions in a modern meeting room."
+    "catalog": {
+      "title": "Building blocks for verifiable data products",
+      "description": "Core Filecoin products you compose yourself, plus managed services from the ecosystem built on the same network.",
+      "viewAllProviders": "View all storage services",
+      "groups": {
+        "storage": {
+          "title": "Storage",
+          "description": "Warm, archival, and IPFS-pinned storage with onchain proofs."
+        },
+        "retrieval": {
+          "title": "Retrieval and delivery",
+          "description": "Fast, paid retrieval and open content-addressed access."
+        },
+        "payments": {
+          "title": "Payments",
+          "description": "Programmable, streaming payments settled onchain."
+        },
+        "developerTools": {
+          "title": "Developer tools",
+          "description": "SDKs, smart contracts, and documentation to build with."
+        },
+        "managedServices": {
+          "title": "Managed services built on Filecoin",
+          "description": "S3-compatible and turnkey storage products from ecosystem partners."
+        }
+      }
+    },
+    "getStarted": {
+      "title": "Start with one call. Scale to petabytes.",
+      "description": "Read the quickstart and store your first file in minutes, or talk to our team about your workload.",
+      "cta": {
+        "main": "Start building",
+        "secondary": "Talk to sales"
       }
     }
   },

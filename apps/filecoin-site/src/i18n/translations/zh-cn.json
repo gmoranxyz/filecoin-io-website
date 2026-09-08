@@ -1,105 +1,196 @@
 {
   "/": {
-    "hero": {
-      "headline": "保存人类最重要的信息",
-      "description": "Filecoin 是全球最大的去中心化存储网络，旨在确保数据安全、可验证，并摆脱中心化控制",
-      "announcement": "宣布 Filecoin 链上云",
-      "cta": {
-        "main": "存储数据",
-        "secondary": "开始构建"
-      }
-    },
     "metadata": {
-      "title": "Filecoin | 全球最大的去中心化存储网络，守护人类数据",
-      "description": "在 Filecoin 上保存人类最重要的信息——具备可验证完整性、全球冗余且无中心化控制的去中心化存储网络。立即构建应用、安全存储数据或成为存储提供者。"
+      "title": "Filecoin | 面向开发者与企业的可验证云存储",
+      "description": "在全球最大的去中心化存储网络 Filecoin 上，将可验证存储、快速检索和可编程支付构建进你的产品。从一次 API 调用开始，或联系销售团队。"
+    },
+    "hero": {
+      "eyebrow": "Filecoin Cloud",
+      "headlineStrong": "存储互联网上最有价值的信息",
+      "headlineMuted": "为在其之上构建产品的开发者与企业而生。",
+      "description": "Filecoin 将可验证存储、快速检索和可编程支付整合为一个云平台，供你构建进自己的产品。每个字节都在链上得到证明，你无需再相信服务商的口头承诺。",
+      "cta": {
+        "main": "开始构建",
+        "secondary": "联系销售"
+      }
     },
     "trustedBy": {
-      "title": "加入使用 Filecoin 存储的行业领袖"
+      "title": "守护全球最重要数据的团队都在使用 Filecoin"
     },
-    "byTheNumbers": {
-      "title": "Filecoin 数据一览",
-      "storageCapacity": {
-        "subTitle": "网络存储容量",
-        "description": "足以存储维基百科文本 3600 万次"
+    "proof": {
+      "title": "互联网规模的基础设施",
+      "description": "Filecoin 是全球最大的去中心化存储网络，以下每个数字都可在链上验证。",
+      "capacity": {
+        "label": "存储容量",
+        "description": "由全球数千家独立存储提供者共同承诺"
       },
       "clients": {
-        "subTitle": "大型客户",
-        "description": "拥有超过 1TiB 活跃数据"
+        "label": "存储 1 TiB 以上的机构",
+        "description": "从国家档案馆到 AI 数据管道"
       },
-      "smartContracts": {
-        "subTitle": "智能合约",
-        "description": "通过 Filecoin 虚拟机 (FVM) 部署"
+      "proofSuccess": {
+        "label": "存储证明验证率",
+        "description": "存储提供者每天在链上证明其持有你的数据"
+      },
+      "startingPrice": {
+        "label": "每 TB 每月",
+        "description": "透明、可编程的定价，没有意外的流出费用"
       }
     },
-    "reshapingData": {
-      "title": "Filecoin 正在重塑世界存储数据的方式",
-      "subTitle": "为下一代互联网奠定更好的基础。",
-      "paragraph1": "如今，少数几家公司控制着世界上大部分数据，形成了中心化的守门人，引入了单点故障。",
-      "paragraph2": "Filecoin 提供了一种根本不同的数据存储方法：将数据分布在受密码学证明保障的去中心化全球网络中，确保更高的安全性和弹性。",
-      "paragraph3": "从文化档案到科学研究，PB 级的数据已经存储在 Filecoin 上。去中心化模型赋予用户对其信息的真正自主权，为更开放、更有弹性、用户可控的互联网奠定基础。",
-      "storeDataCta": "存储数据",
-      "becomeProviderCta": "成为存储提供者"
+    "products": {
+      "warmStorage": "Warm Storage",
+      "archivalStorage": "归档存储",
+      "filecoinPin": "Filecoin Pin",
+      "retrieval": "Filecoin Beam",
+      "ipfsGateways": "IPFS 检索",
+      "filecoinPay": "Filecoin Pay",
+      "usdfc": "USDFC",
+      "synapseSdk": "Synapse SDK",
+      "smartContracts": "智能合约 (FVM)",
+      "documentation": "文档"
     },
-    "ipfs": {
-      "title": "IPFS 的激励层",
-      "paragraph1": "Filecoin 为星际文件系统 (IPFS) 添加了激励性的持久存储，IPFS 是一个用于内容寻址数据的点对点网络，为数据创建了一个强大、多功能且长期的存储空间。",
-      "paragraph2": "Filecoin 使 IPFS 用户能够轻松可靠地将数据直接存储在 Filecoin 网络上。其结果是一个去中心化的存储层，开辟了全新类别的应用和用例。",
-      "learnMoreCta": "了解更多关于 IPFS"
-    },
-    "comparison": {
-      "title": "Filecoin 存储优势对比",
-      "description": "去中心化存储与传统云存储的对比",
-      "storeDataCta": "存储数据",
-      "learnMoreCta": "了解更多关于 Filecoin",
-      "traditionalCloud": "传统云存储",
-      "resilience": {
-        "filecoin": "通过全球冗余实现弹性",
-        "traditionalCloud": "单点故障"
+    "useCases": {
+      "title": "已被构建进真实产品",
+      "description": "数据平台、档案馆和开发者工具已经运行在 Filecoin 之上。看看他们使用了哪些产品，以及为什么。",
+      "cta": "查看所有案例研究",
+      "tabListLabel": "选择一个客户案例",
+      "productsUsedLabel": "使用的产品",
+      "readMore": "阅读 {name} 的故事",
+      "akave": {
+        "headline": "Akave 在 Filecoin 上为 AI 工作负载运行 S3 兼容的对象存储",
+        "quote": "我们的客户保留了熟悉的 S3 工作流，同时获得了任何超大规模云都无法提供的东西：数据确实存放在我们所说位置的密码学证明。",
+        "attribution": "[姓名]，[职位]，Akave（占位引言）"
       },
-      "censorship": {
-        "filecoin": "设计上抗审查",
-        "traditionalCloud": "易受审查和下架影响"
+      "cidgravity": {
+        "headline": "CIDgravity 为 Nextcloud 用户提供可验证的存储后端",
+        "quote": "我们把 Filecoin 接在了数百万人已经在用的工具后面。没有人需要学习新东西，而每个文件现在都带有证明。",
+        "attribution": "[姓名]，[职位]，CIDgravity（占位引言）"
       },
-      "participation": {
-        "filecoin": "开放、无许可参与",
-        "traditionalCloud": "由企业守门人控制"
+      "starlingLab": {
+        "headline": "Starling Lab 以可证明的完整性保存人权证据",
+        "quote": "当一份记录可能在多年后接受法庭质证时，你需要的不只是备份，而是证明它从未被更改。Filecoin 给了我们这一点。",
+        "attribution": "[姓名]，[职位]，Starling Lab（占位引言）",
+        "imageAlt": "恒温档案室内货架上成排的档案盒。"
       },
-      "storage": {
-        "filecoin": "可验证的存储承诺",
-        "traditionalCloud": "不透明的信任模型"
+      "flickrFoundation": {
+        "headline": "Flickr Foundation 让一个世纪的摄影作品在下一个世纪继续在线",
+        "quote": "我们的使命是一百年。Filecoin 是唯一一个由网络而非合同来强制执行存储保证的选择。",
+        "attribution": "[姓名]，[职位]，Flickr Foundation（占位引言）"
       },
-      "incentives": {
-        "filecoin": "参与者的经济激励",
-        "traditionalCloud": "利润流向股东"
+      "internetArchive": {
+        "headline": "Internet Archive 为互联网的记忆增加了一份可验证的冗余副本",
+        "quote": "自 2021 年起，我们就将部分档案存储在 Filecoin 上。它为我们提供了地理冗余和证明轨迹，这在单一云服务商那里根本无法获得。",
+        "attribution": "[姓名]，[职位]，Internet Archive（占位引言）"
       },
-      "longevity": {
-        "filecoin": "数据比机构更长久",
-        "traditionalCloud": "提供商失败则数据丢失"
+      "lighthouse": {
+        "headline": "Lighthouse 基于 Filecoin 销售一次付费、永久存储的服务",
+        "quote": "可编程支付让我们能以中心化云无法做到的方式为存储定价。客户只付一次钱，网络负责兑现承诺。",
+        "attribution": "[姓名]，[职位]，Lighthouse（占位引言）"
       }
     },
-    "buildForFuture": {
-      "title": "开放、可扩展、面向未来",
-      "subTitle": "去中心化、可验证的存储层，轻松扩展。",
-      "description": "驱动链上存储、dApp、数据密集型 SaaS 平台、不可变档案等。利用开源工具、原生 IPFS 集成、跨链数据桥和 FEVM 可编程智能合约加速开发。无需妥协地构建，因为您控制数据，而非中心化守门人。",
-      "startBuildingCta": "开始构建",
-      "documentationCta": "文档"
+    "spotlight": {
+      "eyebrow": "Filecoin Cloud",
+      "title": "存储、检索与支付，集成于一个 SDK",
+      "description": "Filecoin Cloud 是 Filecoin 面向开发者的可编程基础设施。通过一个 TypeScript SDK 和一组可读的智能合约，带证明地存储数据、快速取回，并只为实际用量付费。",
+      "features": {
+        "warmStorage": {
+          "title": "基于数据持有证明 (PDP) 的 Warm Storage",
+          "description": "存储提供者按固定周期证明其持有你的数据。错过证明，就失去付款。"
+        },
+        "retrieval": {
+          "title": "通过 Filecoin Beam 快速检索",
+          "description": "为你存储的数据提供 CDN 级别的流出能力，按实际传输字节付费。"
+        },
+        "payments": {
+          "title": "通过 Filecoin Pay 进行可编程支付",
+          "description": "以 USDFC 或 FIL 流式支付。预算、通道和结算全部在链上。"
+        }
+      },
+      "snippet": {
+        "credentialsComment": "从你的 Filecoin 开发者控制台获取凭证",
+        "uploadComment": "存储一个文件并获得其可验证的内容标识符",
+        "retrieveComment": "从任何持有有效证明的存储提供者取回"
+      },
+      "cta": {
+        "main": "阅读快速入门",
+        "secondary": "探索 Filecoin Cloud"
+      }
     },
-    "latestNews": {
-      "title": "最新消息",
-      "description": "来自构建 Filecoin 团队的洞察、更新、生态亮点和社区故事。",
-      "viewAllCta": "查看所有文章"
+    "audiences": {
+      "title": "一个网络，为每个团队提供路径",
+      "description": "选择你使用 Filecoin 的方式：可编程原语、托管的 S3 服务，或由你提供的存储容量。",
+      "tabListLabel": "选择你的角色",
+      "developers": {
+        "label": "开发者",
+        "headline": "一个下午就能上线可验证存储",
+        "paragraph1": "安装 Synapse SDK，为钱包充值，然后存储你的第一个带证明的文件。无需与存储提供者谈判，没有专有格式，没有锁定。",
+        "paragraph2": "一切都是开源且内容寻址的，所以你今天存储的数据，明天可以从任何提供者处取回。",
+        "cta": "阅读文档",
+        "imageAlt": "两位开发者在一台笔记本电脑前结对编程。"
+      },
+      "enterprises": {
+        "label": "企业",
+        "headline": "让审计人员可以验证的存储",
+        "paragraph1": "用密码学证明取代不透明的 SLA。Filecoin 在链上向你展示：你数据的每个副本每天都存在且完好无损。",
+        "paragraph2": "为自己的产品选择可编程原语，或通过 Fil One 使用托管的 S3 兼容服务。两者运行在同一个可验证网络之上。",
+        "cta": "联系销售"
+      },
+      "startups": {
+        "label": "初创公司",
+        "headline": "随你成长而非与你为敌的云经济",
+        "paragraph1": "存储价格低至每 TB 每月 2.50 美元，没有意外的流出费用，定价写在智能合约里，而不是 40 页的价目表中。",
+        "paragraph2": "从托管服务起步，需要更多控制时再迁移到 SDK。你的数据无需搬迁。",
+        "cta": "比较存储方案"
+      },
+      "dataCenters": {
+        "label": "数据中心",
+        "headline": "将闲置容量转化为持续收入",
+        "paragraph1": "存储提供者通过证明持有客户数据来获得收入。Filecoin Pay 以稳定币结算，收入可预期。",
+        "paragraph2": "加入已在全球为企业和档案机构提供服务的数千家提供者。",
+        "cta": "成为存储提供者"
+      },
+      "agents": {
+        "label": "AI 智能体",
+        "headline": "智能体可以自行付费的存储",
+        "paragraph1": "为自主智能体提供一个持久化记忆、产物和数据集的地方，并通过 Filecoin Pay 控制其预算。",
+        "paragraph2": "每次写入都会返回一个内容标识符，智能体及其监督者都能准确验证存储了什么。",
+        "cta": "构建智能体应用",
+        "imageAlt": "计算机主板与电路的特写。"
+      }
     },
-    "community": {
-      "title": "加入充满活力的社区",
-      "description": "成为构建去中心化、高效、强大的人类信息基础设施运动的一份子。",
-      "chatOnSlack": "在 Slack 上交流",
-      "attendEvent": "参加 Filecoin 活动",
-      "getInvolvedGitHub": "在 GitHub 上参与",
-      "becomeAmbassador": "成为 Filecoin Orbit 大使",
-      "images": {
-        "conference": "一大群人参加科技大会或研讨会，演讲者在台上演讲，参会者坐在椅子和懒人沙发上，许多人在使用笔记本电脑。",
-        "panel": "一名男子在讨论小组中对着麦克风发言，面带微笑，其他参与者在旁边认真倾听。",
-        "presentation": "一名女性在现代会议室向坐着的观众做演示，几位参与者举手提问。"
+    "catalog": {
+      "title": "构建可验证数据产品的基础模块",
+      "description": "可自行组合的 Filecoin 核心产品，以及基于同一网络构建的生态托管服务。",
+      "viewAllProviders": "查看所有存储服务",
+      "groups": {
+        "storage": {
+          "title": "存储",
+          "description": "带链上证明的温存储、归档存储和 IPFS 固定存储。"
+        },
+        "retrieval": {
+          "title": "检索与分发",
+          "description": "快速、付费的检索以及开放的内容寻址访问。"
+        },
+        "payments": {
+          "title": "支付",
+          "description": "在链上结算的可编程流式支付。"
+        },
+        "developerTools": {
+          "title": "开发者工具",
+          "description": "用于构建的 SDK、智能合约和文档。"
+        },
+        "managedServices": {
+          "title": "基于 Filecoin 的托管服务",
+          "description": "来自生态合作伙伴的 S3 兼容和一站式存储产品。"
+        }
+      }
+    },
+    "getStarted": {
+      "title": "从一次调用开始，扩展到 PB 级。",
+      "description": "阅读快速入门，几分钟内存储你的第一个文件，或与我们的团队讨论你的工作负载。",
+      "cta": {
+        "main": "开始构建",
+        "secondary": "联系销售"
       }
     }
   },
