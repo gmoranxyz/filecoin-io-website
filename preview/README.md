@@ -9,12 +9,38 @@ whole Next.js app, which needs Tina Cloud credentials to build.
 
 ## Deploying it
 
-Static. No build step, no environment variables.
+Static. No build step, no environment variables, no framework.
+
+### Fastest: one command, no dashboard
+
+From the repository root, on a machine where you are signed into Vercel:
+
+```bash
+npx vercel deploy preview --prod --yes
+```
+
+That uploads the `preview` directory as its own Vercel project and prints the
+live URL. `--yes` accepts the defaults, so there are no prompts. It ignores the
+rest of the repository entirely, so the Next.js app and its Tina credentials
+never enter the picture.
+
+Re-run the same command to publish an updated snapshot.
+
+If you are not signed in yet, run `npx vercel login` first.
+
+### Alternative: from the dashboard, wired to git
+
+Use this if you want every push to redeploy automatically.
 
 1. Vercel, then Add New, then Project, then this repository.
 2. Root Directory: `preview`
 3. Framework Preset: Other. Leave Build Command empty.
 4. Settings, then Git, then Production Branch: the branch carrying this file.
+
+Step 2 is the one that matters. Left at the repository root, Vercel detects the
+Next.js app instead and the build fails on missing Tina credentials. Step 4
+matters because `main` does not carry this directory, so without it the
+production URL serves nothing.
 
 `vercel.json` sends `X-Robots-Tag: noindex` and `index.html` carries a matching
 `robots` meta tag, so the preview will not be indexed. Both matter: filecoin.io's
