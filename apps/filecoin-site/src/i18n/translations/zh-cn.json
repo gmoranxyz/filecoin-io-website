@@ -5,9 +5,8 @@
       "description": "在全球最大的去中心化存储网络 Filecoin 上，将可验证存储、快速检索和可编程支付构建进你的产品。从一次 API 调用开始，或联系销售团队。"
     },
     "hero": {
-      "eyebrow": "Filecoin Cloud",
-      "headlineStrong": "存储互联网上最有价值的信息",
-      "headlineMuted": "为在其之上构建产品的开发者与企业而生。",
+      "announcement": "新提案：Filecoin 服务经济",
+      "headline": "存储互联网上最有价值的信息，为在其之上构建产品的开发者与企业而生。",
       "description": "Filecoin 将可验证存储、快速检索和可编程支付整合为一个云平台，供你构建进自己的产品。每个字节都在链上得到证明，你无需再相信服务商的口头承诺。",
       "cta": {
         "main": "开始构建",
@@ -47,7 +46,12 @@
       "usdfc": "USDFC",
       "synapseSdk": "Synapse SDK",
       "smartContracts": "智能合约 (FVM)",
-      "documentation": "文档"
+      "documentation": "文档",
+      "filOne": "Fil One",
+      "akaveCloud": "Akave Cloud",
+      "lighthouse": "Lighthouse",
+      "cidgravity": "CIDgravity",
+      "storacha": "Storacha"
     },
     "useCases": {
       "title": "已被构建进真实产品",
@@ -109,7 +113,8 @@
       "snippet": {
         "credentialsComment": "从你的 Filecoin 开发者控制台获取凭证",
         "uploadComment": "存储一个文件并获得其可验证的内容标识符",
-        "retrieveComment": "从任何持有有效证明的存储提供者取回"
+        "retrieveComment": "从任何持有有效证明的存储提供者取回",
+        "agentPrompt": "编写一个 Node.js 脚本，使用 Synapse SDK（@filoz/synapse-sdk）将文件上传到 Filecoin。\n\n要求：\n- 从环境变量 FILECOIN_PRIVATE_KEY 读取私钥，并连接到 Calibration 测试网\n- 上传文件并打印返回的 piece CID\n- 通过 piece CID 将文件下载回来，并校验字节内容一致\n- 处理错误，并在每一步打印清晰的状态信息"
       },
       "cta": {
         "main": "阅读快速入门",
@@ -869,8 +874,11 @@
     "buildOnFilecoin": "开始在 Filecoin 上构建",
     "communityHub": "社区中心",
     "blog": "博客",
+    "products": "产品",
+    "solutions": "解决方案",
     "developers": "开发者",
     "network": "网络",
+    "resources": "资源",
     "community": "社区",
     "privacyPolicy": "隐私政策",
     "termsOfUse": "使用条款",
@@ -884,9 +892,17 @@
     "events": "活动",
     "grants": "资助",
     "bugBounty": "安全漏洞赏金",
+    "solutionWeb3": "Web3",
+    "solutionFinancialCompanies": "金融机构",
+    "solutionAgents": "智能体",
+    "solutionStorage": "存储",
+    "solutionVerification": "验证",
+    "solutionIpIndustry": "知识产权行业",
     "sections": {
       "understandFilecoin": "了解 Filecoin",
       "explore": "探索",
+      "tools": "工具",
+      "solutions": "解决方案",
       "contribute": "贡献",
       "blockExplorers": "区块浏览器",
       "networkMonitoring": "网络监控",
@@ -899,6 +915,8 @@
       "learn": "了解 Filecoin 是什么以及它如何运作",
       "caseStudies": "查看其他人如何在现实世界中使用 Filecoin",
       "buildOnFilecoin": "在 Filecoin 网络上构建应用",
+      "storeData": "比较存储提供者并开始存储数据",
+      "provideStorage": "为网络提供存储容量并赚取 FIL",
       "documentation": "Filecoin 官方文档",
       "cookbook": "使用 Filecoin 和 FVM 构建的秘诀",
       "github": "探索 Filecoin 的开源代码库",
@@ -913,7 +931,28 @@
       "orbit": "成为 Filecoin Orbit 大使",
       "fipsGovernance": "提议、讨论和塑造未来升级",
       "networkStatus": "Filecoin 网络的状态",
-      "networkHealth": "Filecoin 链上活动和性能"
+      "networkHealth": "Filecoin 链上活动和性能",
+      "blog": "来自 Filecoin 生态系统的新闻、更新与深度解读",
+      "warmStorage": "具有持续数据持有证明的存储",
+      "archivalStorage": "由 Filecoin 证明支持的低成本冷存储",
+      "filecoinPin": "从你的应用中固定并管理 Filecoin 上的内容",
+      "retrieval": "为存储在 Filecoin 上的数据提供 CDN 级出口",
+      "ipfsGateways": "通过 IPFS 获取内容寻址数据",
+      "filecoinPay": "用于存储与检索的可编程、可流式支付",
+      "usdfc": "面向 Filecoin 经济的加密抵押稳定币",
+      "synapseSdk": "用于存储、检索与支付的 TypeScript SDK",
+      "smartContracts": "在 Filecoin 虚拟机上使用 Solidity 构建链上应用",
+      "filOne": "面向企业存储买家的发现到合格线索转化",
+      "akaveCloud": "基于 Filecoin 构建的 S3 兼容对象存储",
+      "lighthouse": "面向开发者的永久存储与支付通道",
+      "cidgravity": "交易撮合与存储提供者管理",
+      "storacha": "面向 IPFS 与 Filecoin 数据的热存储与分发",
+      "solutionWeb3": "为 Web3 应用提供存储与支付",
+      "solutionFinancialCompanies": "为受监管金融数据提供可审计记录",
+      "solutionAgents": "AI 智能体可据以交易的可验证存储",
+      "solutionStorage": "面向存储提供者的容量与工具",
+      "solutionVerification": "用于可验证数据的证明与认证",
+      "solutionIpIndustry": "知识产权的溯源与许可"
     }
   },
   "newsletterForm": {

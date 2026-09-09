@@ -5,9 +5,8 @@
       "description": "Build verifiable storage, fast retrieval, and programmable payments into your products on Filecoin, the world's largest decentralized storage network. Start with one API call or talk to sales."
     },
     "hero": {
-      "eyebrow": "Filecoin Cloud",
-      "headlineStrong": "Storing the internet's most valuable information",
-      "headlineMuted": "for the developers and enterprises building on top of it.",
+      "announcement": "New proposal: a Filecoin service economy",
+      "headline": "Storing the internet's most valuable information for the developers and enterprises building on top of it.",
       "description": "Filecoin gives you verifiable storage, fast retrieval, and programmable payments as one cloud you can build into your own products. Every byte is proven onchain, so you never have to take a provider's word for it.",
       "cta": {
         "main": "Start building",
@@ -47,7 +46,12 @@
       "usdfc": "USDFC",
       "synapseSdk": "Synapse SDK",
       "smartContracts": "Smart contracts (FVM)",
-      "documentation": "Documentation"
+      "documentation": "Documentation",
+      "filOne": "Fil One",
+      "akaveCloud": "Akave Cloud",
+      "lighthouse": "Lighthouse",
+      "cidgravity": "CIDgravity",
+      "storacha": "Storacha"
     },
     "useCases": {
       "title": "Built into real products",
@@ -109,7 +113,8 @@
       "snippet": {
         "credentialsComment": "Get credentials from your developer dashboard",
         "uploadComment": "Store a file, get back its content identifier",
-        "retrieveComment": "Retrieve it from any provider with a valid proof"
+        "retrieveComment": "Retrieve it from any provider with a valid proof",
+        "agentPrompt": "Build a Node.js script that uploads a file to Filecoin using the Synapse SDK (@filoz/synapse-sdk).\n\nRequirements:\n- Read a private key from FILECOIN_PRIVATE_KEY and connect to the Calibration testnet\n- Upload the file and print the returned piece CID\n- Download the file back by its piece CID and verify the bytes match\n- Handle errors and log clear status messages at each step"
       },
       "cta": {
         "main": "Read the quickstart",
@@ -877,8 +882,11 @@
     "buildOnFilecoin": "Start Building on Filecoin",
     "communityHub": "Community Hub",
     "blog": "Blog",
+    "products": "Products",
+    "solutions": "Solutions",
     "developers": "Developers",
     "network": "Network",
+    "resources": "Resources",
     "community": "Community",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
@@ -892,9 +900,17 @@
     "events": "Events",
     "grants": "Grants",
     "bugBounty": "Security Bug Bounty",
+    "solutionWeb3": "Web3",
+    "solutionFinancialCompanies": "Financial companies",
+    "solutionAgents": "Agents",
+    "solutionStorage": "Storage",
+    "solutionVerification": "Verification",
+    "solutionIpIndustry": "IP Industry",
     "sections": {
       "understandFilecoin": "Understand Filecoin",
       "explore": "Explore",
+      "tools": "Tools",
+      "solutions": "Solutions",
       "contribute": "Contribute",
       "blockExplorers": "Block Explorers",
       "networkMonitoring": "Network Monitoring",
@@ -907,6 +923,8 @@
       "learn": "Understand what Filecoin is and how it works",
       "caseStudies": "See how others are using Filecoin in the real world",
       "buildOnFilecoin": "Build apps on the Filecoin network",
+      "storeData": "Compare storage providers and start storing data",
+      "provideStorage": "Offer capacity to the network and earn FIL",
       "documentation": "Official documentation for Filecoin",
       "cookbook": "Recipes for building with Filecoin and the FVM",
       "github": "Explore Filecoin's open-source repositories",
@@ -921,7 +939,28 @@
       "orbit": "Become a Filecoin Orbit ambassador",
       "fipsGovernance": "Propose, discuss, and shape future upgrades",
       "networkStatus": "The status of the Filecoin networks",
-      "networkHealth": "Filecoin chain activity and performance"
+      "networkHealth": "Filecoin chain activity and performance",
+      "blog": "News, updates, and deep dives from the Filecoin ecosystem",
+      "warmStorage": "Storage with continuous Proof of Data Possession",
+      "archivalStorage": "Cold, low-cost storage backed by Filecoin's proofs",
+      "filecoinPin": "Pin and manage content on Filecoin from your app",
+      "retrieval": "CDN-class egress for data stored on Filecoin",
+      "ipfsGateways": "Fetch content-addressed data over IPFS",
+      "filecoinPay": "Programmable, streamable payments for storage and retrieval",
+      "usdfc": "A crypto-collateralized stablecoin for the Filecoin economy",
+      "synapseSdk": "The TypeScript SDK for storage, retrieval, and payments",
+      "smartContracts": "Build onchain with Solidity on the Filecoin Virtual Machine",
+      "filOne": "Discovery to qualified handoff for enterprise storage buyers",
+      "akaveCloud": "S3-compatible object storage built on Filecoin",
+      "lighthouse": "Perpetual storage and payment rails for developers",
+      "cidgravity": "Deal-making and storage provider management",
+      "storacha": "Hot storage and delivery for IPFS and Filecoin data",
+      "solutionWeb3": "Storage and payments for web3 applications",
+      "solutionFinancialCompanies": "Auditable records for regulated financial data",
+      "solutionAgents": "Verifiable storage AI agents can transact against",
+      "solutionStorage": "Capacity and tooling for storage providers",
+      "solutionVerification": "Proofs and attestations for verifiable data",
+      "solutionIpIndustry": "Provenance and licensing for intellectual property"
     }
   },
   "newsletterForm": {
