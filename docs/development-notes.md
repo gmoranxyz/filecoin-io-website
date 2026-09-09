@@ -44,4 +44,5 @@ Paths with `[locale]` and `(homepage)` break shell globs; quote them or use
 ## Current project
 
 `docs/homepage-redesign.md` — homepage rebuild for the brand/web realignment.
+`docs/vercel-deployment.md` — Vercel settings and the env vars the build requires.
 Read it before touching the homepage or the navigation IA.
