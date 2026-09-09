@@ -114,7 +114,7 @@
         "credentialsComment": "Get credentials from your developer dashboard",
         "uploadComment": "Store a file, get back its content identifier",
         "retrieveComment": "Retrieve it from any provider with a valid proof",
-        "agentPrompt": "Build a Node.js script that uploads a file to Filecoin using the Synapse SDK (@filoz/synapse-sdk).\n\nRequirements:\n- Read a private key from FILECOIN_PRIVATE_KEY and connect to the Calibration testnet\n- Upload the file and print the returned piece CID\n- Download the file back by its piece CID and verify the bytes match\n- Handle errors and log clear status messages at each step"
+        "agentPrompt": "Build with the Synapse SDK: read https://filecoin.cloud/skills/synapse-sdk.md and follow it."
       },
       "cta": {
         "main": "Read the quickstart",

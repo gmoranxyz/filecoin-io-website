@@ -114,7 +114,7 @@
         "credentialsComment": "从你的 Filecoin 开发者控制台获取凭证",
         "uploadComment": "存储一个文件并获得其可验证的内容标识符",
         "retrieveComment": "从任何持有有效证明的存储提供者取回",
-        "agentPrompt": "编写一个 Node.js 脚本，使用 Synapse SDK（@filoz/synapse-sdk）将文件上传到 Filecoin。\n\n要求：\n- 从环境变量 FILECOIN_PRIVATE_KEY 读取私钥，并连接到 Calibration 测试网\n- 上传文件并打印返回的 piece CID\n- 通过 piece CID 将文件下载回来，并校验字节内容一致\n- 处理错误，并在每一步打印清晰的状态信息"
+        "agentPrompt": "使用 Synapse SDK 进行开发：阅读 https://filecoin.cloud/skills/synapse-sdk.md 并按照其中的说明操作。"
       },
       "cta": {
         "main": "阅读快速入门",
