@@ -8,14 +8,26 @@ import { graphicsData } from '@/data/graphicsData'
 import motherboard from '@/assets/images/computer-motherboard-circuit.webp'
 import pairProgramming from '@/assets/images/pair-programming.webp'
 
-
 import type { Audience } from '../components/AudienceSelector'
 
 // PLACEHOLDER — ICP list from the wireframe (Developer, Enterprise, Startup,
 // Data center, Agent). Copy and CTA targets to be confirmed against the
-// Propaganda positioning work (workstream 1).
+// Propaganda positioning work (workstream 1). Order (agents first) and icons
+// follow design review feedback (round 1, item 6); icons themselves are
+// resolved client-side in AudienceSelector, keyed by id.
 export function getAudiences(t: TranslationFunction): Array<Audience> {
   return [
+    {
+      id: 'agents',
+      label: t('audiences.agents.label'),
+      headline: t('audiences.agents.headline'),
+      description: [
+        t('audiences.agents.paragraph1'),
+        t('audiences.agents.paragraph2'),
+      ],
+      cta: { label: t('audiences.agents.cta'), href: FILECOIN_CLOUD_DOCS_URL },
+      image: { data: motherboard, alt: t('audiences.agents.imageAlt') },
+    },
     {
       id: 'developers',
       label: t('audiences.developers.label'),
@@ -68,17 +80,6 @@ export function getAudiences(t: TranslationFunction): Array<Audience> {
         href: PATHS.PROVIDE_STORAGE.path,
       },
       image: graphicsData.serverBladeChassis,
-    },
-    {
-      id: 'agents',
-      label: t('audiences.agents.label'),
-      headline: t('audiences.agents.headline'),
-      description: [
-        t('audiences.agents.paragraph1'),
-        t('audiences.agents.paragraph2'),
-      ],
-      cta: { label: t('audiences.agents.cta'), href: FILECOIN_CLOUD_DOCS_URL },
-      image: { data: motherboard, alt: t('audiences.agents.imageAlt') },
     },
   ]
 }
