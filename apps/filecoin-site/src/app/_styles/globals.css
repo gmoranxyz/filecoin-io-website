@@ -4,16 +4,6 @@
 @source '../../../../../node_modules/@filecoin-foundation/ui';
 @source '../../../../../node_modules/@filecoin-foundation/ui-filecoin';
 
-/* Wide viewports: ramp the rem base from 16px at 1536px to 20px at ~2070px
-   (≈19px on a 1920px display) so type, spacing and imagery scale together
-   inside the fixed 1440px Container. Media queries resolve rem against the
-   initial 16px, so breakpoints do not shift. */
-@media (min-width: 96rem) {
-  html {
-    font-size: clamp(1rem, calc(1rem + (100vw - 96rem) * 0.0075), 1.25rem);
-  }
-}
-
 @utility prose {
   & blockquote {
     @apply border-brand-600 border-l-2;

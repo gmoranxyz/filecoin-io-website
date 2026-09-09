@@ -52,17 +52,14 @@ export function AudienceSelector({ audiences }: AudienceSelectorProps) {
             className="grid grid-cols-1 gap-10 focus:outline-none md:grid-cols-2 md:gap-12 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:gap-16"
           >
             <div className="flex flex-col justify-center gap-8">
-              <Heading
-                tag="h3"
-                className="text-2xl/8 font-medium sm:text-3xl/10 xl:text-4xl/11"
-              >
+              <Heading tag="h3" className="text-2xl/8.5 font-medium">
                 {headline}
               </Heading>
               <div className="space-y-5">
                 {description.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="text-pretty text-(--color-paragraph-text) lg:text-lg/7"
+                    className="text-xl/7 text-pretty text-(--color-paragraph-text)"
                   >
                     {paragraph}
                   </p>

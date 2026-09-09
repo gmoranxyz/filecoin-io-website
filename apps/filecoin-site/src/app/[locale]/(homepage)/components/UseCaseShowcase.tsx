@@ -89,10 +89,7 @@ export function UseCaseShowcase({ useCases }: UseCaseShowcaseProps) {
             >
               <div className="flex flex-col justify-between gap-12">
                 <div className="space-y-8">
-                  <Heading
-                    tag="h3"
-                    className="text-3xl/10 font-medium sm:tracking-tight md:text-4xl/11 xl:text-5xl/15"
-                  >
+                  <Heading tag="h3" variant="section-heading">
                     {headline}
                   </Heading>
 
@@ -112,7 +109,7 @@ export function UseCaseShowcase({ useCases }: UseCaseShowcaseProps) {
 
                 <div className="space-y-6">
                   <blockquote className="border-brand-600 space-y-4 border-l-2 pl-5">
-                    <p className="text-lg/7 text-pretty text-(--color-text-base)">
+                    <p className="text-xl/7 text-pretty text-(--color-text-base)">
                       {quote}
                     </p>
                     <footer className="text-sm text-(--color-paragraph-text)">

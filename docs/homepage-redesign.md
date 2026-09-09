@@ -68,14 +68,20 @@ audiences → gray catalog → dark CTA. Alternation follows the existing site.
 7. **Proof metrics.** Which four numbers? Current picks: capacity, 1 TiB+ orgs, proof success, starting price. "Uptime" was suggested but the network has no single uptime figure.
 8. **Metadata.** New `<title>`/description are placeholder; SEO owner to sign off (this page carries the site's search authority).
 
-## Site-wide change shipped with this work
+## Type scale
 
-`src/app/_styles/globals.css` ramps the root font-size from 16px at 1536px to
-20px at ~2070px viewports. Every rem-based token (type, spacing, image boxes)
-scales with it while the 1440px `Container` stays fixed, so wide screens no
-longer show small type in a sea of margin. This affects all pages at ≥1536px,
-not only the homepage; below that nothing changes. Percy runs at narrower
-widths, so it will not flag it.
+The homepage uses the site's existing type scale unchanged: `Heading` variants
+from `ui-filecoin` (`page-heading`, `section-heading`, `card-heading`) and the
+same body sizes as other sections. Verified identical to `/store-data` at 390,
+768, 1024, 1440, 1920 and 2560px: same root size, same h1, h2 and section
+description sizes at every breakpoint.
+
+An earlier revision of this branch ramped the root font-size on viewports above
+1536px so type grew on large monitors. It was reverted: it made the homepage
+inconsistent with the rest of filecoin.io, and tuning it blind produced type
+that read too small at one width and too large at another. If wide-viewport
+scale is revisited, it should change the shared scale in `ui-filecoin` for the
+whole site rather than one stylesheet.
 
 ## Process notes
 

@@ -16,13 +16,13 @@ export function StatsRow({ stats }: StatsRowProps) {
           key={label}
           className="flex flex-col gap-3 border-t border-(--color-border-muted) pt-6"
         >
-          <dt className="order-2 text-lg font-medium text-(--color-text-base)">
+          <dt className="order-2 text-xl text-(--color-subheading-text)">
             {label}
           </dt>
-          <dd className="font-heading text-brand-700 order-1 text-4xl/10 font-medium tracking-tight sm:text-5xl/15">
+          <dd className="font-heading text-brand-700 order-1 text-5xl">
             {value}
           </dd>
-          <dd className="order-3 text-sm text-(--color-paragraph-text)">
+          <dd className="order-3 text-pretty text-(--color-paragraph-text)">
             {description}
           </dd>
         </div>

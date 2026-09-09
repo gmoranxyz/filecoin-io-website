@@ -39,7 +39,7 @@ export function ProductSpotlight({
           <Heading tag="h2" variant="section-heading">
             {title}
           </Heading>
-          <p className="text-xl/8 text-pretty text-(--color-subheading-text-muted)">
+          <p className="text-2xl/8.5 text-pretty text-(--color-subheading-text-muted)">
             {description}
           </p>
         </div>

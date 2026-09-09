@@ -28,7 +28,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="max-w-2xl text-lg/7 text-balance text-(--color-paragraph-text-strong) md:text-xl/8">
+          <p className="max-w-2xl text-balance text-(--color-paragraph-text-strong) md:text-xl/7">
             {t('description')}
           </p>
         </div>
