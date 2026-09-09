@@ -15,6 +15,7 @@ type ProductSpotlightProps = {
   description: string
   features: Array<SpotlightFeature>
   snippet: Array<CodeLine>
+  agentPrompt: Array<CodeLine>
   cta: {
     primary: { href: string; label: string }
     secondary: { href: string; label: string }
@@ -27,6 +28,7 @@ export function ProductSpotlight({
   description,
   features,
   snippet,
+  agentPrompt,
   cta,
 }: ProductSpotlightProps) {
   return (
@@ -74,7 +76,10 @@ export function ProductSpotlight({
         />
       </div>
 
-      <CodeSnippet filename="store.ts" language="ts" lines={snippet} />
+      <div className="flex flex-col gap-6">
+        <CodeSnippet filename="store.ts" language="ts" lines={snippet} />
+        <CodeSnippet filename="prompt.txt" language="txt" lines={agentPrompt} />
+      </div>
     </div>
   )
 }

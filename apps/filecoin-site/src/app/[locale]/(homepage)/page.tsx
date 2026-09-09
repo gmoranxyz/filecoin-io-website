@@ -36,6 +36,7 @@ import { UseCaseShowcase } from './components/UseCaseShowcase'
 import { getAudiences } from './data/audiences'
 import { getProductCatalog } from './data/productCatalog'
 import {
+  getSpotlightAgentPrompt,
   getSpotlightFeatures,
   getSpotlightSnippet,
 } from './data/productSpotlight'
@@ -57,6 +58,7 @@ export default async function Home({ params }: HomeProps) {
   const useCases = getUseCases(t)
   const spotlightFeatures = getSpotlightFeatures(t)
   const spotlightSnippet = getSpotlightSnippet(t)
+  const spotlightAgentPrompt = getSpotlightAgentPrompt(t)
   const audiences = getAudiences(t)
   const productCatalog = getProductCatalog(t)
 
@@ -124,6 +126,7 @@ export default async function Home({ params }: HomeProps) {
           description={t('spotlight.description')}
           features={spotlightFeatures}
           snippet={spotlightSnippet}
+          agentPrompt={spotlightAgentPrompt}
           cta={{
             primary: {
               href: FILECOIN_CLOUD_DOCS_URL,

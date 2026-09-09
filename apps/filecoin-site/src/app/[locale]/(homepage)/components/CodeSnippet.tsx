@@ -1,4 +1,9 @@
+'use client'
+
+import { CopyIcon } from '@phosphor-icons/react/dist/ssr'
 import { clsx } from 'clsx'
+
+import { CopyToClipboard } from '@filecoin-foundation/ui/CopyToClipboard'
 
 export type CodeTokenTone =
   | 'plain'
@@ -30,6 +35,12 @@ const toneStyles: Record<CodeTokenTone, string> = {
   punctuation: 'text-zinc-400',
 }
 
+function getSnippetText(lines: Array<CodeLine>): string {
+  return lines
+    .map((line) => line.map((token) => token.text).join(''))
+    .join('\n')
+}
+
 export function CodeSnippet({ filename, language, lines }: CodeSnippetProps) {
   return (
     <figure className="overflow-hidden rounded-2xl border border-zinc-50/10 bg-zinc-900 shadow-2xl shadow-black/40">
@@ -42,7 +53,16 @@ export function CodeSnippet({ filename, language, lines }: CodeSnippetProps) {
           </span>
           <span className="ml-2 font-mono">{filename}</span>
         </span>
-        <span className="font-mono uppercase">{language}</span>
+        <span className="flex items-center gap-3">
+          <span className="font-mono uppercase">{language}</span>
+          <CopyToClipboard
+            text={getSnippetText(lines)}
+            notificationTitle="Copied to clipboard!"
+            ariaLabel={`Copy ${filename} to clipboard`}
+            icon={CopyIcon}
+            tooltipDescription="Copy code"
+          />
+        </span>
       </figcaption>
 
       <pre className="overflow-x-auto p-5 font-mono text-sm/6.5 md:text-base/7">
