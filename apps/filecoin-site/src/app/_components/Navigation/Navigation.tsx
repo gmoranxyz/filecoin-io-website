@@ -18,6 +18,7 @@ type NavigationProps = {
 
 export async function Navigation({ backgroundVariant }: NavigationProps) {
   const t = await getTranslations('navigation')
+  const tHome = await getTranslations('/')
 
   return (
     <Section as="header" backgroundVariant={backgroundVariant}>
@@ -27,7 +28,7 @@ export async function Navigation({ backgroundVariant }: NavigationProps) {
 
           <div className="block xl:hidden">
             <MobileNavigation
-              items={getMobileNavigationItems(t)}
+              items={getMobileNavigationItems(t, tHome)}
               HomeLogoIconLinkComponent={HomeLogoIconLink}
               Footer={<NavigationLanguageToggle variant="relaxed" />}
             />
