@@ -7,7 +7,6 @@ import Image, { type StaticImageData } from 'next/image'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import { useTranslations } from 'next-intl'
 
-import { Badge } from '@filecoin-foundation/ui-filecoin/Badge'
 import { CTALink } from '@filecoin-foundation/ui-filecoin/CTALink'
 import { Heading } from '@filecoin-foundation/ui-filecoin/Heading'
 
@@ -18,6 +17,10 @@ import AkaveLogo from '@/assets/miniatures/akave-miniature.svg'
 import CIDgravityLogo from '@/assets/miniatures/cid-gravity-miniature.svg'
 import LighthouseLogo from '@/assets/miniatures/lighthouse-miniature.svg'
 
+import { type ProductKey, PRODUCTS } from '../data/products'
+
+import { ProductPill } from './ProductPill'
+
 type SvgLogo = { type: 'svg'; src: ComponentType<SVGProps<SVGSVGElement>> }
 type ImageLogo = { type: 'image'; src: StaticImageData }
 
@@ -27,7 +30,7 @@ export type UseCase = {
   id: UseCaseId
   name: string
   headline: string
-  products: Array<string>
+  products: Array<ProductKey>
   quote: string
   attribution: string
   href: string
@@ -53,6 +56,7 @@ const LOGOS = {
 
 export function UseCaseShowcase({ useCases }: UseCaseShowcaseProps) {
   const t = useTranslations('/.useCases')
+  const tProducts = useTranslations('/.products')
 
   return (
     <TabGroup className="overflow-hidden rounded-2xl border border-(--color-border-muted) bg-(--color-card-background)">
@@ -98,9 +102,13 @@ export function UseCaseShowcase({ useCases }: UseCaseShowcaseProps) {
                       {t('productsUsedLabel')}
                     </p>
                     <ul className="flex flex-wrap gap-2">
-                      {products.map((product) => (
-                        <li key={product}>
-                          <Badge textTransform="none">{product}</Badge>
+                      {products.map((productKey) => (
+                        <li key={productKey}>
+                          <ProductPill
+                            label={tProducts(productKey)}
+                            href={PRODUCTS[productKey].href}
+                            icon={PRODUCTS[productKey].icon}
+                          />
                         </li>
                       ))}
                     </ul>
