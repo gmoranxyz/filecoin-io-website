@@ -52,9 +52,20 @@ Protection, if the link should require sign-in.
 
 ## Regenerating it
 
-The snapshot comes from a local dev server via a Playwright script that inlines
-every asset and flattens the tab panels into the document. Ask Claude to
-regenerate it after homepage changes, otherwise this file drifts from the code.
+With a dev server running:
+
+```bash
+cd apps/filecoin-site && npx next dev --webpack -p 3100   # one terminal
+node preview/generate.mjs                                  # another
+```
+
+`generate.mjs` inlines every asset, flattens both tab groups into the document
+with a small script to switch them, repoints internal links at the live site and
+writes a standalone head with `noindex`. It prints tab-group and image counts so
+you can check it captured everything. Playwright is not a dependency of this
+repo; install it with `npm i -g playwright && playwright install chromium`.
+
+Regenerate after any homepage change, otherwise this file drifts from the code.
 
 Verified at 1440px and 390px: no horizontal scroll, no console errors, both tab
 groups switching.

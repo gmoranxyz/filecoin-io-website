@@ -45,4 +45,5 @@ Paths with `[locale]` and `(homepage)` break shell globs; quote them or use
 
 `docs/homepage-redesign.md` — homepage rebuild for the brand/web realignment.
 `docs/vercel-deployment.md` — Vercel settings and the env vars the build requires.
+`docs/homepage-feedback-plan.md` — round 1 design feedback, written as a handoff.
 Read it before touching the homepage or the navigation IA.
