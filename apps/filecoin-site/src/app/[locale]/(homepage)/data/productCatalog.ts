@@ -26,6 +26,7 @@ export function getProductCatalog(t: TranslationFunction): Array<ProductGroup> {
         toProduct('warmStorage', t),
         toProduct('archivalStorage', t),
         toProduct('filecoinPin', t),
+        toProduct('filOne', t),
       ],
     },
     {
@@ -51,7 +52,6 @@ export function getProductCatalog(t: TranslationFunction): Array<ProductGroup> {
       title: t('catalog.groups.managedServices.title'),
       description: t('catalog.groups.managedServices.description'),
       products: [
-        toProduct('filOne', t),
         toProduct('akaveCloud', t),
         toProduct('lighthouse', t),
         toProduct('cidgravity', t),

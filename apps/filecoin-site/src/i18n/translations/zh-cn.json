@@ -37,7 +37,7 @@
       }
     },
     "products": {
-      "warmStorage": "Warm Storage",
+      "warmStorage": "Warm storage",
       "archivalStorage": "归档存储",
       "filecoinPin": "Filecoin Pin",
       "retrieval": "Filecoin Beam",
@@ -170,7 +170,7 @@
       "groups": {
         "storage": {
           "title": "存储",
-          "description": "带链上证明的温存储、归档存储和 IPFS 固定存储。"
+          "description": "带链上证明的 S3 兼容存储、温存储、归档存储和 IPFS 固定存储。"
         },
         "retrieval": {
           "title": "检索与分发",

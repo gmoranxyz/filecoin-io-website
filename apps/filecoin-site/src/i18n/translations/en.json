@@ -37,7 +37,7 @@
       }
     },
     "products": {
-      "warmStorage": "Warm Storage",
+      "warmStorage": "Warm storage",
       "archivalStorage": "Archival storage",
       "filecoinPin": "Filecoin Pin",
       "retrieval": "Filecoin Beam",
@@ -170,7 +170,7 @@
       "groups": {
         "storage": {
           "title": "Storage",
-          "description": "Warm, archival, and IPFS-pinned storage with onchain proofs."
+          "description": "S3-compatible, Warm, archival, and IPFS-pinned storage with onchain proofs."
         },
         "retrieval": {
           "title": "Retrieval and delivery",
