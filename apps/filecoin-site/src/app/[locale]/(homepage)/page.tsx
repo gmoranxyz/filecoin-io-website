@@ -2,20 +2,20 @@ import Image from 'next/image'
 
 import type { LocaleParams } from '@/i18n/types'
 
-import { BookIcon } from '@phosphor-icons/react/dist/ssr'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
 import { StructuredDataScript } from '@filecoin-foundation/ui/StructuredDataScript'
 import { Button } from '@filecoin-foundation/ui-filecoin/Button'
-import { CardGrid } from '@filecoin-foundation/ui-filecoin/CardGrid'
-import { LinkCard } from '@filecoin-foundation/ui-filecoin/LinkCard'
 import { LogoSection } from '@filecoin-foundation/ui-filecoin/LogoSection/LogoSection'
 import { PageSection } from '@filecoin-foundation/ui-filecoin/PageSection'
 import { SectionContent } from '@filecoin-foundation/ui-filecoin/SectionContent'
 
 import { PATHS } from '@/constants/paths'
-import { FILECOIN_DOCS_URL } from '@/constants/siteMetadata'
+import {
+  FILECOIN_CLOUD_DOCS_URL,
+  FILECOIN_CLOUD_URL,
+} from '@/constants/siteMetadata'
 
 import { graphicsData } from '@/data/graphicsData'
 import { trustedByLogos } from '@/data/trustedByLogos'
@@ -24,51 +24,49 @@ import { createMetadata } from '@/utils/createMetadata'
 import { getLocalePath } from '@/utils/getLocalePath'
 import { getTranslatedMetadata } from '@/utils/getTranslatedMetadata'
 
-import { CardGridContainer } from '@/components/CardGridContainer'
 import { GradientOverlay } from '@/components/GradientOverlay'
-import { ImageGrid } from '@/components/ImageGrid'
 import { Navigation } from '@/components/Navigation/Navigation'
-import { SectionContentWrapper } from '@/components/SectionContentWrapper'
-import { SectionImage } from '@/components/SectionImage'
-import { SplitSectionContent } from '@/components/SplitSectionContent'
 
-import { ComparisonTable } from './components/ComparisonTable/ComparisonTable'
+import { AudienceSelector } from './components/AudienceSelector'
 import { HeroSection } from './components/HeroSection'
-import { MetricCard } from './components/MetricCard'
-import { getCommunityLinks } from './data/communityLinks'
-import { getFilecoinByTheNumbers } from './data/filecoinByTheNumbers'
+import { ProductCatalog } from './components/ProductCatalog'
+import { ProductSpotlight } from './components/ProductSpotlight'
+import { StatsRow } from './components/StatsRow'
+import { UseCaseShowcase } from './components/UseCaseShowcase'
+import { getAudiences } from './data/audiences'
+import { getProductCatalog } from './data/productCatalog'
 import {
-  getFilecoinColumn,
-  getTraditionalCloudColumn,
-} from './data/filecoinVsCloudComparison'
-import { getJoinVibrantCommunityImages } from './data/joinVibrantCommunityImages'
+  getSpotlightAgentPrompt,
+  getSpotlightFeatures,
+  getSpotlightSnippet,
+} from './data/productSpotlight'
+import { getProofStats } from './data/proofStats'
+import { getUseCases } from './data/useCases'
 import { generateStructuredData } from './utils/generateStructuredData'
 
-import { BlogCard } from '@/blog/components/BlogCard'
-import { getFeaturedBlogPosts } from '@/blog/utils/getFeaturedBlogPosts'
-
-type BlogProps = {
+type HomeProps = {
   params: Promise<LocaleParams>
 }
 
-export default async function Home({ params }: BlogProps) {
-  const { locale } = await params
+export default async function Home({ params }: HomeProps) {
+  await params
 
   const t = await getTranslations(PATHS.HOME.path)
   const metadata = await getTranslatedMetadata(PATHS.HOME.path)
 
-  const featuredBlogPosts = await getFeaturedBlogPosts(locale, 3)
-
-  const filecoinByTheNumbers = getFilecoinByTheNumbers(t)
-  const communityLinks = getCommunityLinks(t)
-  const communityImages = getJoinVibrantCommunityImages(t)
-  const filecoinColumn = getFilecoinColumn(t)
-  const traditionalCloudColumn = getTraditionalCloudColumn(t)
+  const proofStats = getProofStats(t)
+  const useCases = getUseCases(t)
+  const spotlightFeatures = getSpotlightFeatures(t)
+  const spotlightSnippet = getSpotlightSnippet(t)
+  const spotlightAgentPrompt = getSpotlightAgentPrompt(t)
+  const audiences = getAudiences(t)
+  const productCatalog = getProductCatalog(t)
 
   return (
     <>
       <StructuredDataScript structuredData={generateStructuredData(metadata)} />
 
+      {/* 1. Hero — intro, primary CTAs, customer logos */}
       <div className="relative isolate">
         <Navigation backgroundVariant="transparentDark" />
         <HeroSection />
@@ -92,182 +90,95 @@ export default async function Home({ params }: BlogProps) {
         />
       </PageSection>
 
+      {/* 2. Proof — a small number of simple, defensible figures */}
       <PageSection backgroundVariant="gray">
         <SectionContent
-          centerTitle
           headingTag="h2"
-          title={t('byTheNumbers.title')}
+          title={t('proof.title')}
+          description={t('proof.description')}
         >
-          <CardGrid as="ul" variant="mdThreeWider">
-            {filecoinByTheNumbers.map(({ title, subTitle, description }) => (
-              <MetricCard
-                key={title}
-                title={title}
-                subTitle={subTitle}
-                description={description}
-              />
-            ))}
-          </CardGrid>
+          <StatsRow stats={proofStats} />
         </SectionContent>
       </PageSection>
 
-      <PageSection backgroundVariant="light">
-        <SectionContent headingTag="h2" title={t('reshapingData.title')}>
-          <SplitSectionContent
-            title={t('reshapingData.subTitle')}
-            description={[
-              t('reshapingData.paragraph1'),
-              t('reshapingData.paragraph2'),
-              t('reshapingData.paragraph3'),
-            ]}
-            cta={[
-              <Button href={PATHS.STORE_DATA.path} variant="primary">
-                {t('reshapingData.storeDataCta')}
-              </Button>,
-              <Button href={PATHS.PROVIDE_STORAGE.path} variant="ghost">
-                {t('reshapingData.becomeProviderCta')}
-              </Button>,
-            ]}
-          />
-
-          <SectionImage
-            {...graphicsData.classicLibraryInterior}
-            size="compact"
-          />
-        </SectionContent>
-      </PageSection>
-
+      {/* 3. Real use cases — who built what, with which products */}
       <PageSection backgroundVariant="light">
         <SectionContent
-          centerCTA
-          centerTitle
           headingTag="h2"
-          title={t('comparison.title')}
-          description={t('comparison.description')}
-          cta={[
-            <Button href={PATHS.STORE_DATA.path} variant="primary">
-              {t('comparison.storeDataCta')}
-            </Button>,
-            <Button href={PATHS.LEARN.path} variant="ghost">
-              {t('comparison.learnMoreCta')}
-            </Button>,
-          ]}
-        >
-          <div className="m-auto w-full max-w-sm md:max-w-4xl">
-            <ComparisonTable
-              columns={[filecoinColumn, traditionalCloudColumn]}
-            />
-          </div>
-        </SectionContent>
-      </PageSection>
-
-      <PageSection backgroundVariant="light">
-        <SectionContentWrapper>
-          <SectionContent
-            descriptionColorBase
-            headingTag="h2"
-            title={t('ipfs.title')}
-            description={[t('ipfs.paragraph1'), t('ipfs.paragraph2')]}
-            cta={
-              <Button href="https://ipfs.tech/" variant="primary">
-                {t('ipfs.learnMoreCta')}
-              </Button>
-            }
-          />
-          <Image
-            src={graphicsData.IPFSIllustration.data}
-            alt={graphicsData.IPFSIllustration.alt}
-            className="h-72 min-w-80 object-contain"
-          />
-        </SectionContentWrapper>
-      </PageSection>
-
-      <PageSection backgroundVariant="dark" paddingVariant="bottomCompact">
-        <SectionContent headingTag="h2" title={t('buildForFuture.title')}>
-          <SplitSectionContent
-            title={t('buildForFuture.subTitle')}
-            description={t('buildForFuture.description')}
-            cta={[
-              <Button href={PATHS.BUILD_ON_FILECOIN.path} variant="primary">
-                {t('buildForFuture.startBuildingCta')}
-              </Button>,
-              <Button
-                href={FILECOIN_DOCS_URL}
-                variant="tertiary"
-                icon={BookIcon}
-              >
-                {t('buildForFuture.documentationCta')}
-              </Button>,
-            ]}
-          />
-
-          <SectionImage {...graphicsData.rocketLaunch} size="compact" />
-        </SectionContent>
-      </PageSection>
-
-      <PageSection backgroundVariant="gray">
-        <SectionContent
-          centerCTA
-          headingTag="h2"
-          title={t('latestNews.title')}
-          description={t('latestNews.description')}
+          title={t('useCases.title')}
+          description={t('useCases.description')}
+          ctaPosition="inline"
           cta={
-            <Button variant="primary" href={PATHS.BLOG.path}>
-              {t('latestNews.viewAllCta')}
+            <Button href={PATHS.CASE_STUDIES.path} variant="ghost">
+              {t('useCases.cta')}
             </Button>
           }
         >
-          <CardGrid as="ul" variant="mdTwoLgThreeWide">
-            {featuredBlogPosts.map(
-              ({ title, slug, excerpt, tags, image, author, publishedOn }) => (
-                <BlogCard
-                  key={title}
-                  slug={slug}
-                  title={title}
-                  description={excerpt}
-                  author={author}
-                  date={publishedOn}
-                  tags={tags}
-                  image={
-                    image && {
-                      src: image.url,
-                      alt: title,
-                    }
-                  }
-                />
-              ),
-            )}
-          </CardGrid>
+          <UseCaseShowcase useCases={useCases} />
         </SectionContent>
       </PageSection>
 
+      {/* 4. Product spotlight — description + developer-friendly snippet */}
       <PageSection backgroundVariant="dark">
+        <ProductSpotlight
+          eyebrow={t('spotlight.eyebrow')}
+          title={t('spotlight.title')}
+          description={t('spotlight.description')}
+          features={spotlightFeatures}
+          snippet={spotlightSnippet}
+          agentPrompt={spotlightAgentPrompt}
+          cta={{
+            primary: {
+              href: FILECOIN_CLOUD_DOCS_URL,
+              label: t('spotlight.cta.main'),
+            },
+            secondary: {
+              href: FILECOIN_CLOUD_URL,
+              label: t('spotlight.cta.secondary'),
+            },
+          }}
+        />
+      </PageSection>
+
+      {/* 5. Audiences — one path per ICP */}
+      <PageSection backgroundVariant="light">
         <SectionContent
           headingTag="h2"
-          title={t('community.title')}
-          description={t('community.description')}
+          title={t('audiences.title')}
+          description={t('audiences.description')}
         >
-          <ImageGrid variant="oneMdThree">
-            {communityImages.map(({ data, alt }) => (
-              <Image key={alt} src={data} alt={alt} />
-            ))}
-          </ImageGrid>
-
-          <CardGridContainer width="6xl">
-            <CardGrid as="ul" variant="mdTwo">
-              {communityLinks.map(({ title, href, icon }) => (
-                <LinkCard
-                  key={title}
-                  as="li"
-                  title={title}
-                  headingTag="h3"
-                  href={href}
-                  icon={{ component: icon, variant: 'filled' }}
-                />
-              ))}
-            </CardGrid>
-          </CardGridContainer>
+          <AudienceSelector audiences={audiences} />
         </SectionContent>
+      </PageSection>
+
+      {/* 6. Full product list — core products vs. managed services */}
+      <PageSection backgroundVariant="gray">
+        <SectionContent
+          headingTag="h2"
+          title={t('catalog.title')}
+          description={t('catalog.description')}
+        >
+          <ProductCatalog groups={productCatalog} />
+        </SectionContent>
+      </PageSection>
+
+      {/* 7. Get started */}
+      <PageSection backgroundVariant="dark">
+        <SectionContent
+          centerTitle
+          headingTag="h2"
+          title={t('getStarted.title')}
+          description={t('getStarted.description')}
+          ctaPosition="below-center"
+          cta={[
+            <Button href={FILECOIN_CLOUD_DOCS_URL} variant="primary">
+              {t('getStarted.cta.main')}
+            </Button>,
+            <Button href={PATHS.STORE_DATA_TALK_TO_EXPERT.path} variant="ghost">
+              {t('getStarted.cta.secondary')}
+            </Button>,
+          ]}
+        />
       </PageSection>
     </>
   )
@@ -280,6 +191,6 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { absolute: title },
     description,
     path: await getLocalePath(PATHS.HOME.path),
-    image: graphicsData.classicLibraryInterior.data.src,
+    image: graphicsData.earthFromDeepSpace.data.src,
   })
 }

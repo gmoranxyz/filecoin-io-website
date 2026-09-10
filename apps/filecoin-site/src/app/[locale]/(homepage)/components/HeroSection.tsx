@@ -6,28 +6,29 @@ import { PageHeader } from '@filecoin-foundation/ui-filecoin/PageHeader'
 import { PageSection } from '@filecoin-foundation/ui-filecoin/PageSection'
 
 import { PATHS } from '@/constants/paths'
-import { FILECOIN_CLOUD_URL } from '@/constants/siteMetadata'
+import { FILECOIN_CLOUD_DOCS_URL } from '@/constants/siteMetadata'
 
 export function HeroSection() {
   const t = useTranslations('/.hero')
 
   return (
     <PageSection backgroundVariant="transparentDark" paddingVariant="none">
-      <div className="space-y-15 py-25 md:py-30">
-        <Announcement centered href={FILECOIN_CLOUD_URL}>
+      <div className="flex flex-col gap-10 py-25 md:py-30 lg:max-w-4xl">
+        <Announcement
+          href={`${PATHS.BLOG.path}/Solstice-Towards-a-Filecoin-Service-Economy`}
+        >
           {t('announcement')}
         </Announcement>
 
         <PageHeader
-          centered
           title={t('headline')}
           description={t('description')}
           variant="highContrast"
           cta={[
-            <Button href={PATHS.STORE_DATA.path} variant="primary">
+            <Button href={FILECOIN_CLOUD_DOCS_URL} variant="primary">
               {t('cta.main')}
             </Button>,
-            <Button href={PATHS.BUILD_ON_FILECOIN.path} variant="ghost">
+            <Button href={PATHS.STORE_DATA_TALK_TO_EXPERT.path} variant="ghost">
               {t('cta.secondary')}
             </Button>,
           ]}

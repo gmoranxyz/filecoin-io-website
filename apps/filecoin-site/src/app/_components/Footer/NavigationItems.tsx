@@ -6,10 +6,11 @@ import { getFooterNavigationItems } from '../Navigation/constants/navigation'
 
 export async function NavigationItems() {
   const t = await getTranslations('navigation')
+  const tHome = await getTranslations('/')
 
   return (
     <>
-      {getFooterNavigationItems(t).map(({ title, items }) => (
+      {getFooterNavigationItems(t, tHome).map(({ title, items }) => (
         <div key={title} className="space-y-5">
           <span className="block text-sm font-medium">{title}</span>
           <ul className="flex flex-col gap-3">
