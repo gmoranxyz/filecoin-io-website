@@ -1,21 +1,18 @@
 import Image from 'next/image'
 
-import type { LocaleParams } from '@/i18n/types'
+import type { Locale } from '@/i18n/types'
 
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 import { StructuredDataScript } from '@filecoin-foundation/ui/StructuredDataScript'
-import { Button } from '@filecoin-foundation/ui-filecoin/Button'
+import { CardGrid } from '@filecoin-foundation/ui-filecoin/CardGrid'
+import { Icon } from '@filecoin-foundation/ui-filecoin/Icon'
 import { LogoSection } from '@filecoin-foundation/ui-filecoin/LogoSection/LogoSection'
 import { PageSection } from '@filecoin-foundation/ui-filecoin/PageSection'
 import { SectionContent } from '@filecoin-foundation/ui-filecoin/SectionContent'
 
 import { PATHS } from '@/constants/paths'
-import {
-  FILECOIN_CLOUD_DOCS_URL,
-  FILECOIN_CLOUD_URL,
-} from '@/constants/siteMetadata'
 
 import { graphicsData } from '@/data/graphicsData'
 import { trustedByLogos } from '@/data/trustedByLogos'
@@ -24,52 +21,70 @@ import { createMetadata } from '@/utils/createMetadata'
 import { getLocalePath } from '@/utils/getLocalePath'
 import { getTranslatedMetadata } from '@/utils/getTranslatedMetadata'
 
+
 import { GradientOverlay } from '@/components/GradientOverlay'
 import { Navigation } from '@/components/Navigation/Navigation'
 
-import { AudienceSelector } from './components/AudienceSelector'
+import { BuildingBlocksSection } from './components/BuildingBlocksSection'
+import { CustomerStoriesSection } from './components/CustomerStoriesSection'
+import { FilecoinCloudSection } from './components/FilecoinCloudSection'
 import { HeroSection } from './components/HeroSection'
-import { ProductCatalog } from './components/ProductCatalog'
-import { ProductSpotlight } from './components/ProductSpotlight'
-import { StatsRow } from './components/StatsRow'
-import { UseCaseShowcase } from './components/UseCaseShowcase'
-import { getAudiences } from './data/audiences'
-import { getProductCatalog } from './data/productCatalog'
-import {
-  getSpotlightAgentPrompt,
-  getSpotlightFeatures,
-  getSpotlightSnippet,
-} from './data/productSpotlight'
-import { getProofStats } from './data/proofStats'
-import { getUseCases } from './data/useCases'
+import { LatestNewsSection } from './components/LatestNewsSection'
+import { MetricCard } from './components/MetricCard'
+import { OneNetworkSection } from './components/OneNetworkSection'
+import { StartBuildingSection } from './components/StartBuildingSection'
+import { buildingBlocks } from './data/buildingBlocks'
+import { customerStories } from './data/customerStories'
+import { getFilecoinByTheNumbers } from './data/filecoinByTheNumbers'
+import { oneNetworkRoles } from './data/oneNetworkRoles'
 import { generateStructuredData } from './utils/generateStructuredData'
 
-type HomeProps = {
-  params: Promise<LocaleParams>
-}
+import { getFeaturedBlogPosts } from '@/blog/utils/getFeaturedBlogPosts'
 
-export default async function Home({ params }: HomeProps) {
-  await params
-
+export default async function Home() {
+  const locale = await getLocale()
   const t = await getTranslations(PATHS.HOME.path)
   const metadata = await getTranslatedMetadata(PATHS.HOME.path)
 
-  const proofStats = getProofStats(t)
-  const useCases = getUseCases(t)
-  const spotlightFeatures = getSpotlightFeatures(t)
-  const spotlightSnippet = getSpotlightSnippet(t)
-  const spotlightAgentPrompt = getSpotlightAgentPrompt(t)
-  const audiences = getAudiences(t)
-  const productCatalog = getProductCatalog(t)
+  const filecoinByTheNumbers = getFilecoinByTheNumbers(t)
+
+  const featuredBlogPosts = await getFeaturedBlogPosts(locale as Locale, 3)
+  const [leadPost] = featuredBlogPosts
+  const latestPost = leadPost && {
+    title: leadPost.title,
+    href: `${PATHS.BLOG.path}/${leadPost.slug}`,
+  }
+
+  const customerStoriesTabs = customerStories.map((story) => ({
+    ...story,
+    logo:
+      story.logo.type === 'svg' ? (
+        <story.logo.src aria-hidden="true" className="h-4.5 w-auto shrink-0" />
+      ) : (
+        <Image
+          aria-hidden="true"
+          src={story.logo.src}
+          alt=""
+          width={64}
+          height={64}
+          quality={100}
+          className="size-4.5 shrink-0 rounded-full object-cover"
+        />
+      ),
+  }))
+
+  const oneNetworkRolesTabs = oneNetworkRoles.map((role) => ({
+    ...role,
+    icon: <Icon component={role.icon} size={20} />,
+  }))
 
   return (
     <>
       <StructuredDataScript structuredData={generateStructuredData(metadata)} />
 
-      {/* 1. Hero — intro, primary CTAs, customer logos */}
       <div className="relative isolate">
         <Navigation backgroundVariant="transparentDark" />
-        <HeroSection />
+        <HeroSection latestPost={latestPost} />
         <Image
           fill
           priority
@@ -90,96 +105,82 @@ export default async function Home({ params }: HomeProps) {
         />
       </PageSection>
 
-      {/* 2. Proof — a small number of simple, defensible figures */}
       <PageSection backgroundVariant="gray">
-        <SectionContent
-          headingTag="h2"
-          title={t('proof.title')}
-          description={t('proof.description')}
-        >
-          <StatsRow stats={proofStats} />
-        </SectionContent>
-      </PageSection>
-
-      {/* 3. Real use cases — who built what, with which products */}
-      <PageSection backgroundVariant="light">
-        <SectionContent
-          headingTag="h2"
-          title={t('useCases.title')}
-          description={t('useCases.description')}
-          ctaPosition="inline"
-          cta={
-            <Button href={PATHS.CASE_STUDIES.path} variant="ghost">
-              {t('useCases.cta')}
-            </Button>
-          }
-        >
-          <UseCaseShowcase useCases={useCases} />
-        </SectionContent>
-      </PageSection>
-
-      {/* 4. Product spotlight — description + developer-friendly snippet */}
-      <PageSection backgroundVariant="dark">
-        <ProductSpotlight
-          eyebrow={t('spotlight.eyebrow')}
-          title={t('spotlight.title')}
-          description={t('spotlight.description')}
-          features={spotlightFeatures}
-          snippet={spotlightSnippet}
-          agentPrompt={spotlightAgentPrompt}
-          cta={{
-            primary: {
-              href: FILECOIN_CLOUD_DOCS_URL,
-              label: t('spotlight.cta.main'),
-            },
-            secondary: {
-              href: FILECOIN_CLOUD_URL,
-              label: t('spotlight.cta.secondary'),
-            },
-          }}
-        />
-      </PageSection>
-
-      {/* 5. Audiences — one path per ICP */}
-      <PageSection backgroundVariant="light">
-        <SectionContent
-          headingTag="h2"
-          title={t('audiences.title')}
-          description={t('audiences.description')}
-        >
-          <AudienceSelector audiences={audiences} />
-        </SectionContent>
-      </PageSection>
-
-      {/* 6. Full product list — core products vs. managed services */}
-      <PageSection backgroundVariant="gray">
-        <SectionContent
-          headingTag="h2"
-          title={t('catalog.title')}
-          description={t('catalog.description')}
-        >
-          <ProductCatalog groups={productCatalog} />
-        </SectionContent>
-      </PageSection>
-
-      {/* 7. Get started */}
-      <PageSection backgroundVariant="dark">
         <SectionContent
           centerTitle
           headingTag="h2"
-          title={t('getStarted.title')}
-          description={t('getStarted.description')}
-          ctaPosition="below-center"
-          cta={[
-            <Button href={FILECOIN_CLOUD_DOCS_URL} variant="primary">
-              {t('getStarted.cta.main')}
-            </Button>,
-            <Button href={PATHS.STORE_DATA_TALK_TO_EXPERT.path} variant="ghost">
-              {t('getStarted.cta.secondary')}
-            </Button>,
-          ]}
-        />
+          title={t('byTheNumbers.title')}
+        >
+          <CardGrid as="ul" variant="mdThreeDivided">
+            {filecoinByTheNumbers.map(({ title, subTitle, description }) => (
+              <MetricCard
+                key={title}
+                title={title}
+                subTitle={subTitle}
+                description={description}
+              />
+            ))}
+          </CardGrid>
+        </SectionContent>
       </PageSection>
+
+      <CustomerStoriesSection
+        title={t('builtIntoRealProducts.title')}
+        description={t('builtIntoRealProducts.description')}
+        tablistLabel={t('builtIntoRealProducts.tablistLabel')}
+        productsUsedLabel={t('builtIntoRealProducts.productsUsedLabel')}
+        viewAllCta={t('builtIntoRealProducts.viewAllCta')}
+        stories={customerStoriesTabs}
+      />
+
+      <FilecoinCloudSection
+        eyebrow={t('filecoinCloud.eyebrow')}
+        title={t('filecoinCloud.title')}
+        description={t('filecoinCloud.description')}
+        quickstartCta={t('filecoinCloud.quickstartCta')}
+        exploreCta={t('filecoinCloud.exploreCta')}
+        checklist={[
+          {
+            title: t('filecoinCloud.checklist.warmStorage.title'),
+            description: t('filecoinCloud.checklist.warmStorage.description'),
+          },
+          {
+            title: t('filecoinCloud.checklist.beam.title'),
+            description: t('filecoinCloud.checklist.beam.description'),
+          },
+          {
+            title: t('filecoinCloud.checklist.pay.title'),
+            description: t('filecoinCloud.checklist.pay.description'),
+          },
+        ]}
+      />
+
+      <OneNetworkSection
+        title={t('oneNetwork.title')}
+        description={t('oneNetwork.description')}
+        tablistLabel={t('oneNetwork.tablistLabel')}
+        roles={oneNetworkRolesTabs}
+      />
+
+      <BuildingBlocksSection
+        title={t('buildingBlocks.title')}
+        description={t('buildingBlocks.description')}
+        rows={buildingBlocks}
+      />
+
+      <LatestNewsSection
+        title={t('latestNews.title')}
+        description={t('latestNews.description')}
+        viewAllCta={t('latestNews.viewAllCta')}
+        posts={featuredBlogPosts}
+      />
+
+      <StartBuildingSection
+        title={t('startBuilding.title')}
+        description={t('startBuilding.description')}
+        startCta={t('startBuilding.startCta')}
+        talkToSalesCta={t('startBuilding.talkToSalesCta')}
+      />
     </>
   )
 }
@@ -191,6 +192,6 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { absolute: title },
     description,
     path: await getLocalePath(PATHS.HOME.path),
-    image: graphicsData.earthFromDeepSpace.data.src,
+    image: graphicsData.classicLibraryInterior.data.src,
   })
 }
