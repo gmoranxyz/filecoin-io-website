@@ -9,6 +9,7 @@ import type {
 import { PATHS } from '@/constants/paths'
 import {
   FIL_ONE_URL,
+  FILECOIN_CLOUD_DOCS_URL,
   FILECOIN_CLOUD_URL,
   FILECOIN_DOCS_URL,
   FILECOIN_DOCS_URLS,
@@ -19,6 +20,17 @@ import {
 import { pickNavItem } from '../utils/pickNavItem'
 
 type FooterNavigationItem = { title: string; items: Array<NavItem> }
+
+// Header follows the site IA (Products, Resources, Company). Pages the IA
+// lists but that don't exist yet (Solutions, Agents, Cold Storage, IPFS,
+// Pricing, Careers) are left out until they are built. Links whose
+// destination is still undecided use a unique inert hash so list keys stay
+// distinct.
+const PLACEHOLDER_HREFS = {
+  cli: '#resources-cli',
+  support: '#resources-support',
+  about: '#company-about',
+}
 
 function getBlockExplorerItems(): Array<ExpandedNavItem> {
   return [
@@ -57,6 +69,46 @@ function getNetworkMonitoringItems(
   ]
 }
 
+function getProductItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
+    {
+      label: t('storeData'),
+      description: t('descriptions.storeData'),
+      href: PATHS.STORE_DATA.path,
+    },
+    {
+      label: t('filecoinCloud'),
+      description: t('descriptions.filecoinCloud'),
+      href: FILECOIN_CLOUD_URL,
+    },
+    {
+      label: t('filOne'),
+      description: t('descriptions.filOne'),
+      href: FIL_ONE_URL,
+    },
+    {
+      label: t('provideStorage'),
+      description: t('descriptions.provideStorage'),
+      href: PATHS.PROVIDE_STORAGE.path,
+    },
+  ]
+}
+
+function getToolItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
+    {
+      label: t('sdk'),
+      description: t('descriptions.sdk'),
+      href: FILECOIN_CLOUD_DOCS_URL,
+    },
+    {
+      label: t('cli'),
+      description: t('descriptions.cli'),
+      href: PLACEHOLDER_HREFS.cli,
+    },
+  ]
+}
+
 function getDeveloperResourcesItems(
   t: TranslationFunction,
 ): Array<ExpandedNavItem> {
@@ -71,6 +123,41 @@ function getDeveloperResourcesItems(
   ]
 }
 
+function getExploreItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
+    {
+      label: t('developerDocs'),
+      description: t('descriptions.documentation'),
+      href: FILECOIN_DOCS_URL,
+    },
+    {
+      label: t('caseStudies'),
+      description: t('descriptions.caseStudies'),
+      href: PATHS.CASE_STUDIES.path,
+    },
+    {
+      label: t('support'),
+      description: t('descriptions.support'),
+      href: PLACEHOLDER_HREFS.support,
+    },
+  ]
+}
+
+function getCompanyItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
+    {
+      label: t('about'),
+      description: t('descriptions.about'),
+      href: PLACEHOLDER_HREFS.about,
+    },
+    {
+      label: t('communityHub'),
+      description: t('descriptions.communityHub'),
+      href: PATHS.COMMUNITY_HUB.path,
+    },
+  ]
+}
+
 function getContributeItems(t: TranslationFunction): Array<ExpandedNavItem> {
   return [
     {
@@ -82,13 +169,14 @@ function getContributeItems(t: TranslationFunction): Array<ExpandedNavItem> {
   ]
 }
 
-
+// Every internal page, so mobile and footer keep them reachable even where
+// the header IA does not list them (Learn, Build on Filecoin, Blog).
 function getInternalNavigationItems(t: TranslationFunction): Array<NavItem> {
   return [
-    { label: t('learn'), href: PATHS.LEARN.path },
-    { label: t('caseStudies'), href: PATHS.CASE_STUDIES.path },
     { label: t('storeData'), href: PATHS.STORE_DATA.path },
     { label: t('provideStorage'), href: PATHS.PROVIDE_STORAGE.path },
+    { label: t('caseStudies'), href: PATHS.CASE_STUDIES.path },
+    { label: t('learn'), href: PATHS.LEARN.path },
     { label: t('buildOnFilecoin'), href: PATHS.BUILD_ON_FILECOIN.path },
     { label: t('communityHub'), href: PATHS.COMMUNITY_HUB.path },
     { label: t('blog'), href: PATHS.BLOG.path },
@@ -105,81 +193,25 @@ export function getHeaderNavigationItems(
   return [
     {
       label: t('sections.products'),
-      items: [
-        {
-          title: t('sections.products'),
-          links: [
-            {
-              label: t('filecoinOnchainCloud'),
-              description: t('descriptions.filecoinOnchainCloud'),
-              href: FILECOIN_CLOUD_URL,
-            },
-            {
-              label: t('filOne'),
-              description: t('descriptions.filOne'),
-              href: FIL_ONE_URL,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: t('network'),
-      items: [
-        {
-          title: t('sections.understandFilecoin'),
-          links: [
-            {
-              label: t('learn'),
-              description: t('descriptions.learn'),
-              href: PATHS.LEARN.path,
-            },
-            {
-              label: t('caseStudies'),
-              description: t('descriptions.caseStudies'),
-              href: PATHS.CASE_STUDIES.path,
-            },
-          ],
-        },
-        {
-          title: t('sections.participate'),
-          links: [
-            {
-              label: t('buildOnFilecoin'),
-              description: t('descriptions.buildOnFilecoin'),
-              href: PATHS.BUILD_ON_FILECOIN.path,
-            },
-            {
-              label: t('provideStorage'),
-              description: t('descriptions.provideStorage'),
-              href: PATHS.PROVIDE_STORAGE.path,
-            },
-          ],
-        },
-      ],
-      compactLinks: [
-        {
-          title: t('sections.blockExplorers'),
-          links: getBlockExplorerItems(),
-        },
-        {
-          title: t('sections.networkMonitoring'),
-          links: getNetworkMonitoringItems(t),
-        },
-      ],
+      items: [{ title: t('sections.products'), links: getProductItems(t) }],
     },
     {
       label: t('sections.resources'),
       items: [
+        { title: t('sections.tools'), links: getToolItems(t) },
+        { title: t('sections.explore'), links: getExploreItems(t) },
+      ],
+      compactLinks: [
         {
-          title: t('sections.explore'),
-          links: getDeveloperResourcesItems(t),
+          title: t('sections.network'),
+          links: [...getNetworkMonitoringItems(t), ...getBlockExplorerItems()],
         },
-        { title: t('sections.contribute'), links: getContributeItems(t) },
-        { title: t('sections.getInvolved'), links: getCommunityItems(t) },
       ],
     },
-    { label: t('blog'), href: PATHS.BLOG.path },
+    {
+      label: t('sections.company'),
+      items: [{ title: t('sections.company'), links: getCompanyItems(t) }],
+    },
   ]
 }
 

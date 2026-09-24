@@ -32,14 +32,12 @@ export function HeroSection({ latestPost }: HeroSectionProps) {
           description={t('description')}
           variant="highContrast"
           cta={[
-            // TODO: replace "#" with the products page URL once available
-            <Button href="#" variant="primary">
+            // TODO: point at the products page once it exists; anchors to the
+            // Building blocks section in the meantime
+            <Button href="#building-blocks" variant="primary">
               {t('cta.main')}
             </Button>,
-            <Button
-              href={PATHS.STORE_DATA_TALK_TO_EXPERT.path}
-              variant="ghost"
-            >
+            <Button href={PATHS.STORE_DATA_TALK_TO_EXPERT.path} variant="ghost">
               {t('cta.secondary')}
             </Button>,
           ]}

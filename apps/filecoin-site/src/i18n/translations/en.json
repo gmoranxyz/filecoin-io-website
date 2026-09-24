@@ -1,9 +1,9 @@
 {
   "/": {
     "hero": {
-      "headline": "A resilient foundation for humanity's information",
+      "headline": "Storing the internet's most valuable information",
       "description": "Filecoin is the world's largest decentralized storage network, built to keep data secure, verifiable, and free from centralized control.",
-      "announcement": "Announcing Filecoin Onchain Cloud",
+      "announcement": "Announcing Filecoin Cloud",
       "cta": {
         "main": "Explore products",
         "secondary": "Talk to sales"
@@ -39,11 +39,11 @@
       "viewAllCta": "View all case studies"
     },
     "filecoinCloud": {
-      "eyebrow": "Filecoin Onchain Cloud",
+      "eyebrow": "Filecoin Cloud",
       "title": "Storage, retrieval, and payments in one SDK",
       "description": "The same network preserving the Internet Archive's data, available to you as infrastructure: store data with a verified proof, fetch it fast, and pay for exactly what you use, all from one TypeScript SDK.",
       "quickstartCta": "Read the quickstart",
-      "exploreCta": "Explore Filecoin Onchain Cloud",
+      "exploreCta": "Explore Filecoin Cloud",
       "checklist": {
         "warmStorage": {
           "title": "Warm Storage with Proof of Data Possession",
@@ -767,7 +767,6 @@
     "developers": "Developers",
     "network": "Network",
     "community": "Community",
-    "filecoinOnchainCloud": "Filecoin Onchain Cloud",
     "filOne": "Fil One",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
@@ -792,14 +791,16 @@
       "navigation": "Navigation",
       "resources": "Resources",
       "community": "Community",
-      "products": "Products"
+      "products": "Products",
+      "tools": "Tools",
+      "network": "Network",
+      "company": "Company"
     },
     "descriptions": {
       "learn": "Understand what Filecoin is and how it works",
       "caseStudies": "See how others are using Filecoin in the real world",
       "provideStorage": "Offer storage capacity and earn on the network",
       "storeData": "Store your data on the Filecoin network",
-      "filecoinOnchainCloud": "Programmable storage and compute for onchain apps",
       "filOne": "S3-compatible object storage built for the AI era",
       "buildOnFilecoin": "Build apps on the Filecoin network",
       "documentation": "Official documentation for Filecoin",
@@ -816,8 +817,19 @@
       "orbit": "Become a Filecoin Orbit ambassador",
       "fipsGovernance": "Propose, discuss, and shape future upgrades",
       "networkStatus": "The status of the Filecoin networks",
-      "networkHealth": "Filecoin chain activity and performance"
-    }
+      "networkHealth": "Filecoin chain activity and performance",
+      "filecoinCloud": "Verifiable storage, retrieval, and payments in one SDK",
+      "sdk": "Build with the Synapse SDK",
+      "cli": "Manage storage from the command line",
+      "support": "Get help from the Filecoin community",
+      "about": "Who builds and maintains Filecoin"
+    },
+    "filecoinCloud": "Filecoin Cloud",
+    "sdk": "SDK",
+    "cli": "CLI",
+    "developerDocs": "Developer Docs",
+    "support": "Support",
+    "about": "About"
   },
   "newsletterForm": {
     "label": "Sign up for Filecoin updates",

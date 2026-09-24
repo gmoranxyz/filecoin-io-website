@@ -21,7 +21,6 @@ import { createMetadata } from '@/utils/createMetadata'
 import { getLocalePath } from '@/utils/getLocalePath'
 import { getTranslatedMetadata } from '@/utils/getTranslatedMetadata'
 
-
 import { GradientOverlay } from '@/components/GradientOverlay'
 import { Navigation } from '@/components/Navigation/Navigation'
 
@@ -93,6 +92,8 @@ export default async function Home() {
           alt={graphicsData.earthFromDeepSpace.alt}
           className="absolute bottom-0 -z-10 h-full object-cover object-top"
         />
+        {/* Darkens the globe so the white hero text keeps contrast at large breakpoints */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-950/40" />
         <GradientOverlay />
       </div>
 
@@ -162,11 +163,14 @@ export default async function Home() {
         roles={oneNetworkRolesTabs}
       />
 
-      <BuildingBlocksSection
-        title={t('buildingBlocks.title')}
-        description={t('buildingBlocks.description')}
-        rows={buildingBlocks}
-      />
+      {/* Anchor target for the hero "Explore products" CTA until a products page exists */}
+      <div id="building-blocks" className="scroll-mt-20">
+        <BuildingBlocksSection
+          title={t('buildingBlocks.title')}
+          description={t('buildingBlocks.description')}
+          rows={buildingBlocks}
+        />
+      </div>
 
       <LatestNewsSection
         title={t('latestNews.title')}

@@ -1,12 +1,12 @@
 {
   "/": {
     "hero": {
-      "headline": "保存人类最重要的信息",
+      "headline": "存储互联网上最有价值的信息",
       "description": "Filecoin 是全球最大的去中心化存储网络，旨在确保数据安全、可验证，并摆脱中心化控制",
-      "announcement": "宣布 Filecoin 链上云",
+      "announcement": "宣布 Filecoin Cloud",
       "cta": {
-        "main": "存储数据",
-        "secondary": "开始构建"
+        "main": "探索产品",
+        "secondary": "联系销售"
       }
     },
     "metadata": {
@@ -39,11 +39,11 @@
       "viewAllCta": "查看所有案例研究"
     },
     "filecoinCloud": {
-      "eyebrow": "Filecoin 链上云",
+      "eyebrow": "Filecoin Cloud",
       "title": "一个 SDK 搞定存储、检索与支付",
       "description": "为互联网档案馆（Internet Archive）保存数据的同一张网络，现在也是您的基础设施：通过一个 TypeScript SDK，存储带验证证明的数据、快速取回数据，并按实际用量付费。",
       "quickstartCta": "阅读快速入门",
-      "exploreCta": "探索 Filecoin 链上云",
+      "exploreCta": "探索 Filecoin Cloud",
       "checklist": {
         "warmStorage": {
           "title": "带数据持有证明的热存储",
@@ -782,14 +782,16 @@
       "navigation": "导航",
       "resources": "资源",
       "community": "社区",
-      "products": "产品"
+      "products": "产品",
+      "tools": "工具",
+      "network": "网络",
+      "company": "公司"
     },
     "descriptions": {
       "learn": "了解 Filecoin 是什么以及它如何运作",
       "caseStudies": "查看其他人如何在现实世界中使用 Filecoin",
       "provideStorage": "提供存储容量，在网络上赚取收益",
       "storeData": "在 Filecoin 网络上存储您的数据",
-      "filecoinOnchainCloud": "面向链上应用的可编程存储与计算",
       "filOne": "为 AI 时代打造的 S3 兼容对象存储",
       "buildOnFilecoin": "在 Filecoin 网络上构建应用",
       "documentation": "Filecoin 官方文档",
@@ -806,8 +808,20 @@
       "orbit": "成为 Filecoin Orbit 大使",
       "fipsGovernance": "提议、讨论和塑造未来升级",
       "networkStatus": "Filecoin 网络的状态",
-      "networkHealth": "Filecoin 链上活动和性能"
-    }
+      "networkHealth": "Filecoin 链上活动和性能",
+      "filecoinCloud": "可验证的存储、检索与支付，集于一个 SDK",
+      "sdk": "使用 Synapse SDK 构建",
+      "cli": "通过命令行管理存储",
+      "support": "从 Filecoin 社区获得帮助",
+      "about": "谁在构建和维护 Filecoin"
+    },
+    "filecoinCloud": "Filecoin Cloud",
+    "filOne": "Fil One",
+    "sdk": "SDK",
+    "cli": "CLI",
+    "developerDocs": "开发者文档",
+    "support": "支持",
+    "about": "关于"
   },
   "newsletterForm": {
     "label": "订阅 Filecoin 更新",

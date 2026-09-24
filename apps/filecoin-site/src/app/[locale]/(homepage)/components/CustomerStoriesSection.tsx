@@ -2,13 +2,7 @@
 
 import Image from 'next/image'
 
-import {
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
-} from '@headlessui/react'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import {
   ArchiveIcon,
   ArrowsClockwiseIcon,
@@ -102,7 +96,7 @@ export function CustomerStoriesSection({
                   key={story.id}
                   className={clsx(
                     'flex shrink-0 cursor-pointer items-center gap-2 border-b-2 border-transparent px-3 py-5 text-sm font-medium whitespace-nowrap text-(--color-paragraph-text) transition-colors',
-                    'focus:outline-none data-selected:border-brand-700 data-selected:text-(--color-text-base) data-hover:text-(--color-text-base)',
+                    'data-selected:border-brand-700 focus:outline-none data-hover:text-(--color-text-base) data-selected:text-(--color-text-base)',
                   )}
                 >
                   {story.logo}
@@ -149,7 +143,7 @@ export function CustomerStoriesSection({
                       </div>
                     </div>
 
-                    <blockquote className="space-y-3 border-l-2 border-brand-600 pl-6">
+                    <blockquote className="border-brand-600 space-y-3 border-l-2 pl-6">
                       <p className="text-xl/8 text-pretty text-(--color-text-base)">
                         &ldquo;{story.quote}&rdquo;
                       </p>
@@ -163,13 +157,15 @@ export function CustomerStoriesSection({
                       </cite>
                     </blockquote>
 
-                    <Button
-                      href={story.ctaHref}
-                      variant="tertiary"
-                      className="self-start"
-                    >
-                      {story.ctaLabel}
-                    </Button>
+                    {story.cta && (
+                      <Button
+                        href={story.cta.href}
+                        variant="tertiary"
+                        className="self-start"
+                      >
+                        {story.cta.label}
+                      </Button>
+                    )}
                   </div>
 
                   <div className="relative aspect-4/3 overflow-hidden rounded-xl">
@@ -182,7 +178,7 @@ export function CustomerStoriesSection({
                     />
                     <div
                       aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-950/30 via-transparent to-brand-950/10 mix-blend-multiply"
+                      className="from-brand-950/30 to-brand-950/10 pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent mix-blend-multiply"
                     />
                   </div>
                 </TabPanel>

@@ -49,7 +49,7 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     ],
     ctaLabel: 'Read the docs',
     ctaHref: 'https://docs.filecoin.cloud',
-    image: graphicsData.IPFSIllustration,
+    image: graphicsData.pairProgramming,
   },
   {
     id: 'enterprises',
@@ -70,12 +70,12 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     icon: RocketIcon,
     headline: 'Cloud economics that scale with you, not against you',
     body: [
-      'Storage from $2.50 per TB per month, no egress surprises, and pricing you can read in a smart contract instead of a 40-page rate card.',
+      'Pay only for what you store, with no egress surprises and pricing you can read in a smart contract instead of a 40-page rate card.',
       'Start on a managed service, move to the SDK when you need control. Your data never has to migrate.',
     ],
     ctaLabel: 'Compare storage options',
     ctaHref: PATHS.STORE_DATA.path,
-    image: graphicsData.rocketLaunch,
+    image: graphicsData.groupCollaboration,
   },
   {
     id: 'data-centers',

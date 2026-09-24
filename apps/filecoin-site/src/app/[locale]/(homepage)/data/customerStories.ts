@@ -1,6 +1,8 @@
 import type { IconProps } from '@filecoin-foundation/ui-filecoin/Icon'
 import type { StaticImageProps } from '@filecoin-foundation/utils/types/imageType'
 
+import { PATHS } from '@/constants/paths'
+
 import { graphicsData } from '@/data/graphicsData'
 
 import FlickrFoundationLogo from '@/assets/logos/flickr-foundation-icon-logo.svg'
@@ -8,13 +10,17 @@ import InternetArchiveLogo from '@/assets/logos/internet-archive-icon-logo.svg'
 import StarlingLabLogo from '@/assets/logos/starling-lab-icon-logo.png'
 import AkaveLogo from '@/assets/miniatures/akave-miniature.svg'
 import CIDgravityLogo from '@/assets/miniatures/cid-gravity-miniature.svg'
+import FilOneLogo from '@/assets/miniatures/fil-one-miniature.svg'
 import LighthouseLogo from '@/assets/miniatures/lighthouse-miniature.svg'
-
-
 
 type TabLogo =
   | { type: 'svg'; src: IconProps['component'] }
   | { type: 'image'; src: StaticImageProps['data'] }
+
+type StoryCta = {
+  label: string
+  href: string
+}
 
 export type CustomerStory = {
   id: string
@@ -24,11 +30,19 @@ export type CustomerStory = {
   tags: Array<string>
   quote: string
   attribution: string
-  ctaLabel: string
-  ctaHref: string
+  // Only set when a published case study exists for the story
+  cta?: StoryCta
   image: StaticImageProps
 }
 
+function caseStudyCta(name: string, slug: string): StoryCta {
+  return {
+    label: `Read the ${name} story`,
+    href: `${PATHS.CASE_STUDIES.path}/${slug}`,
+  }
+}
+
+// Ordered to alternate archival and warm-storage stories
 export const customerStories: Array<CustomerStory> = [
   {
     id: 'internet-archive',
@@ -40,9 +54,20 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'Since 2021 we have stored parts of the archive on Filecoin. It gives us geographic redundancy and a proof trail we simply could not get from a single cloud.',
     attribution: 'Internet Archive',
-    ctaLabel: 'Read the Internet Archive story',
-    ctaHref: 'https://filecoin.io/case-studies/internet-archive',
+    cta: caseStudyCta('Internet Archive', 'internet-archive'),
     image: graphicsData.classicLibraryInterior,
+  },
+  {
+    id: 'lighthouse',
+    tabLabel: 'Lighthouse',
+    logo: { type: 'svg', src: LighthouseLogo },
+    headline:
+      'Lighthouse sells pay-once, store-forever storage built on Filecoin',
+    tags: ['Warm storage', 'Filecoin Pay', 'Smart contracts (FVM)'],
+    quote:
+      'Programmable payments let us price storage in a way centralized clouds cannot. Our customers pay once and the network keeps the promise.',
+    attribution: 'Lighthouse',
+    image: graphicsData.filecoinStorageDevice,
   },
   {
     id: 'flickr-foundation',
@@ -54,9 +79,20 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'Our mandate is a hundred years. Filecoin was the only option where the storage guarantees were enforced by the network, not by a contract.',
     attribution: 'Flickr Foundation',
-    ctaLabel: 'Read the Flickr Foundation story',
-    ctaHref: 'https://filecoin.io/case-studies/flickr-foundation',
+    cta: caseStudyCta('Flickr Foundation', 'flickr-foundation'),
     image: graphicsData.digitalMediaConversionSetup,
+  },
+  {
+    id: 'akave',
+    tabLabel: 'Akave',
+    logo: { type: 'svg', src: AkaveLogo },
+    headline:
+      'Akave runs S3-compatible object storage for AI workloads on Filecoin',
+    tags: ['Warm storage', 'Filecoin Pay', 'Synapse SDK'],
+    quote:
+      'Our customers keep the S3 workflow they already know and gain something no hyperscaler offers: cryptographic proof that their data is exactly where we say it is.',
+    attribution: 'Akave',
+    image: graphicsData.dataCenterServerRow,
   },
   {
     id: 'starling-lab',
@@ -68,22 +104,8 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'When a record might be challenged in court years from now, you need more than a backup. You need to prove nothing changed. Filecoin gives us that.',
     attribution: 'Starling Lab',
-    ctaLabel: 'Read the Starling Lab story',
-    ctaHref: 'https://filecoin.io/case-studies/starling-lab',
+    cta: caseStudyCta('Starling Lab', 'starling-lab'),
     image: graphicsData.serverBladeChassis,
-  },
-  {
-    id: 'lighthouse',
-    tabLabel: 'Lighthouse',
-    logo: { type: 'svg', src: LighthouseLogo },
-    headline: 'Lighthouse sells pay-once, store-forever storage built on Filecoin',
-    tags: ['Warm storage', 'Filecoin Pay', 'Smart contracts (FVM)'],
-    quote:
-      'Programmable payments let us price storage in a way centralized clouds cannot. Our customers pay once and the network keeps the promise.',
-    attribution: 'Lighthouse',
-    ctaLabel: 'Read the Lighthouse story',
-    ctaHref: 'https://www.lighthouse.storage/',
-    image: graphicsData.filecoinStorageDevice,
   },
   {
     id: 'cidgravity',
@@ -94,21 +116,18 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'We plugged Filecoin in behind a tool millions of people already use. Nobody had to learn anything new, and every file now carries a proof.',
     attribution: 'CIDgravity',
-    ctaLabel: 'Read the CIDgravity story',
-    ctaHref: 'https://www.cidgravity.com/',
     image: graphicsData.filecoinServerRack,
   },
   {
-    id: 'akave',
-    tabLabel: 'Akave',
-    logo: { type: 'svg', src: AkaveLogo },
-    headline: 'Akave runs S3-compatible object storage for AI workloads on Filecoin',
-    tags: ['Warm storage', 'Filecoin Pay', 'Synapse SDK'],
+    id: 'fil-one',
+    tabLabel: 'Fil One',
+    logo: { type: 'svg', src: FilOneLogo },
+    headline:
+      'Fil One gives teams S3-compatible object storage backed by Filecoin proofs',
+    tags: ['Warm storage', 'Synapse SDK'],
     quote:
-      'Our customers keep the S3 workflow they already know and gain something no hyperscaler offers: cryptographic proof that their data is exactly where we say it is.',
-    attribution: 'Akave',
-    ctaLabel: 'Read the Akave story',
-    ctaHref: 'https://akave.com/',
-    image: graphicsData.dataCenterServerRow,
+      'Teams point their existing S3 tooling at Fil One and get verifiable storage without changing a line of application code.',
+    attribution: 'Fil One',
+    image: graphicsData.cupolaEarthView,
   },
 ]
