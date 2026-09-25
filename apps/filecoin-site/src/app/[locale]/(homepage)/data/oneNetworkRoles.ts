@@ -36,7 +36,7 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     ],
     ctaLabel: 'Build with agents',
     ctaHref: 'https://docs.filecoin.cloud',
-    image: graphicsData.filecoinMiningRig,
+    image: graphicsData.humanAndRobotHands,
   },
   {
     id: 'developers',
@@ -49,7 +49,7 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     ],
     ctaLabel: 'Read the docs',
     ctaHref: 'https://docs.filecoin.cloud',
-    image: graphicsData.pairProgramming,
+    image: graphicsData.developersCodingTogether,
   },
   {
     id: 'enterprises',
@@ -62,7 +62,7 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     ],
     ctaLabel: 'Talk to sales',
     ctaHref: PATHS.STORE_DATA_TALK_TO_EXPERT.path,
-    image: graphicsData.dataCenterServerRow,
+    image: graphicsData.openPlanOfficeAtNight,
   },
   {
     id: 'startups',
@@ -75,7 +75,7 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     ],
     ctaLabel: 'Compare storage options',
     ctaHref: PATHS.STORE_DATA.path,
-    image: graphicsData.groupCollaboration,
+    image: graphicsData.startupTeamWhiteboard,
   },
   {
     id: 'data-centers',
@@ -88,6 +88,6 @@ export const oneNetworkRoles: Array<NetworkRole> = [
     ],
     ctaLabel: 'Become a storage provider',
     ctaHref: PATHS.PROVIDE_STORAGE.path,
-    image: graphicsData.serverBladeChassis,
+    image: graphicsData.serverDriveBays,
   },
 ]

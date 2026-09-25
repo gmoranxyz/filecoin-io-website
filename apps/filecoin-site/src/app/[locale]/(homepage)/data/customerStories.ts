@@ -67,7 +67,7 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'Programmable payments let us price storage in a way centralized clouds cannot. Our customers pay once and the network keeps the promise.',
     attribution: 'Lighthouse',
-    image: graphicsData.filecoinStorageDevice,
+    image: graphicsData.lighthouseUnderMilkyWay,
   },
   {
     id: 'flickr-foundation',
@@ -80,7 +80,7 @@ export const customerStories: Array<CustomerStory> = [
       'Our mandate is a hundred years. Filecoin was the only option where the storage guarantees were enforced by the network, not by a contract.',
     attribution: 'Flickr Foundation',
     cta: caseStudyCta('Flickr Foundation', 'flickr-foundation'),
-    image: graphicsData.digitalMediaConversionSetup,
+    image: graphicsData.flickrAboutPage,
   },
   {
     id: 'akave',
@@ -92,7 +92,7 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'Our customers keep the S3 workflow they already know and gain something no hyperscaler offers: cryptographic proof that their data is exactly where we say it is.',
     attribution: 'Akave',
-    image: graphicsData.dataCenterServerRow,
+    image: graphicsData.akaveCloudHomepage,
   },
   {
     id: 'starling-lab',
@@ -105,7 +105,7 @@ export const customerStories: Array<CustomerStory> = [
       'When a record might be challenged in court years from now, you need more than a backup. You need to prove nothing changed. Filecoin gives us that.',
     attribution: 'Starling Lab',
     cta: caseStudyCta('Starling Lab', 'starling-lab'),
-    image: graphicsData.serverBladeChassis,
+    image: graphicsData.starlingLabHighlights,
   },
   {
     id: 'cidgravity',
@@ -116,7 +116,7 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'We plugged Filecoin in behind a tool millions of people already use. Nobody had to learn anything new, and every file now carries a proof.',
     attribution: 'CIDgravity',
-    image: graphicsData.filecoinServerRack,
+    image: graphicsData.cidgravityHomepage,
   },
   {
     id: 'fil-one',
@@ -128,6 +128,6 @@ export const customerStories: Array<CustomerStory> = [
     quote:
       'Teams point their existing S3 tooling at Fil One and get verifiable storage without changing a line of application code.',
     attribution: 'Fil One',
-    image: graphicsData.cupolaEarthView,
+    image: graphicsData.filOneAboutPage,
   },
 ]
