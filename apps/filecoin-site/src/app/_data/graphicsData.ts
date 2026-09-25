@@ -23,6 +23,8 @@ import serverBladeChassis from '@/assets/graphics/server-blade-chassis.webp'
 import solarEclipse from '@/assets/graphics/solar-eclipse.webp'
 import spiralGalaxyStarsSpace from '@/assets/graphics/spiral-galaxy-stars-space.webp'
 import starsSpinning from '@/assets/graphics/stars-spinning.webp'
+import groupCollaboration from '@/assets/images/group-collaboration.webp'
+import pairProgramming from '@/assets/images/pair-programming.webp'
 
 export const graphicsData = {
   astronautHelmet: {
@@ -77,6 +79,10 @@ export const graphicsData = {
     data: filecoinStorageDevice,
     alt: 'Black storage device with Filecoin logo and glowing green indicator lights.',
   },
+  groupCollaboration: {
+    data: groupCollaboration,
+    alt: 'A small team gathered around a table, working together on laptops.',
+  },
   howDataMovesThroughFilecoin: {
     data: howDataMovesThroughFilecoin,
     alt: 'Diagram showing how data moves through the Filecoin network. A circular flow surrounds a globe representing the global network. On the left, a user icon labeled “User stores data” explains that users upload data to Filecoin using storage tools or services, which create storage deals with Storage Providers. Below, Storage Providers are shown committing these deals to the Filecoin blockchain; the diagram notes that the blockchain stores only the record of the deal, not the data itself. At the bottom, the Filecoin logo represents the blockchain, where Storage Providers regularly submit cryptographic storage proofs to verify they are correctly storing user data. On the right, a section labeled “Retrieval clients” explains that storage solutions or retrieval clients fetch data directly from Storage Providers. At the top right, another user icon labeled “User retrieves data” indicates that users can retrieve their stored data using a tool or storage solution of their choice. The overall graphic illustrates a decentralized, global data storage and retrieval process coordinated through Filecoin.',
@@ -96,6 +102,10 @@ export const graphicsData = {
   planetsShadow: {
     data: planetsShadow,
     alt: '',
+  },
+  pairProgramming: {
+    data: pairProgramming,
+    alt: 'Two developers pair programming at a shared screen.',
   },
   rocketLaunch: {
     data: rocketLaunch,

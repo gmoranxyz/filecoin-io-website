@@ -18,24 +18,24 @@ type NavigationProps = {
 
 export async function Navigation({ backgroundVariant }: NavigationProps) {
   const t = await getTranslations('navigation')
-  const tHome = await getTranslations('/')
 
   return (
     <Section as="header" backgroundVariant={backgroundVariant}>
       <Container>
-        <nav className="flex items-center justify-between py-8 whitespace-nowrap lg:gap-16 xl:justify-start 2xl:gap-24">
+        <nav className="flex items-center justify-between py-8 lg:gap-10 xl:justify-start">
           <HomeLogoIconLink />
 
           <div className="block xl:hidden">
             <MobileNavigation
-              items={getMobileNavigationItems(t, tHome)}
+              items={getMobileNavigationItems(t)}
               HomeLogoIconLinkComponent={HomeLogoIconLink}
               Footer={<NavigationLanguageToggle variant="relaxed" />}
             />
           </div>
 
-          <div className="hidden xl:block xl:flex-1">
+          <div className="hidden xl:flex xl:flex-1 xl:items-center xl:justify-between">
             <DesktopNavigation />
+            <NavigationLanguageToggle />
           </div>
         </nav>
       </Container>

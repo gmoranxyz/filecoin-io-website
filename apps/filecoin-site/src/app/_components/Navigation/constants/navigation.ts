@@ -8,6 +8,9 @@ import type {
 
 import { PATHS } from '@/constants/paths'
 import {
+  FIL_ONE_URL,
+  FILECOIN_CLOUD_DOCS_URL,
+  FILECOIN_CLOUD_URL,
   FILECOIN_DOCS_URL,
   FILECOIN_DOCS_URLS,
   FILECOIN_FOUNDATION_URLS,
@@ -16,38 +19,25 @@ import {
 
 import { pickNavItem } from '../utils/pickNavItem'
 
-import { PRODUCTS, type ProductKey } from '@/(homepage)/data/products'
-
 type FooterNavigationItem = { title: string; items: Array<NavItem> }
-type NavigationMenuGroup = NavigationMenuItem['items'][number]
 
-// The homepage's root namespace, reused here for `products.*` labels and
-// `catalog.groups.*.title` so the Products menu can never drift from the
-// homepage catalog section (design review, round 1, item 7).
-type HomeTranslationFunction = TranslationFunction
+// Header follows the site IA (Products, Resources, Company). Pages the IA
+// lists but that don't exist yet (Solutions, Agents, Cold Storage, IPFS,
+// Pricing, Careers) are left out until they are built. Links whose
+// destination is still undecided use a unique inert hash so list keys stay
+// distinct.
+const PLACEHOLDER_HREFS = {
+  cli: '#resources-cli',
+  support: '#resources-support',
+  about: '#company-about',
+}
 
-function getBlockExplorerItems(t: TranslationFunction): Array<ExpandedNavItem> {
+function getBlockExplorerItems(): Array<ExpandedNavItem> {
   return [
-    {
-      label: 'Beryx',
-      description: t('descriptions.beryx'),
-      href: 'https://beryx.io/',
-    },
-    {
-      label: 'Blockscout (FEVM)',
-      description: t('descriptions.blockscout'),
-      href: 'https://www.blockscout.com/',
-    },
-    {
-      label: 'Filfox',
-      description: t('descriptions.filfox'),
-      href: 'https://filfox.info/',
-    },
-    {
-      label: 'Filscan',
-      description: t('descriptions.filscan'),
-      href: 'https://filscan.io/en/',
-    },
+    { label: 'Beryx', href: 'https://beryx.io/' },
+    { label: 'Blockscout (FEVM)', href: 'https://www.blockscout.com/' },
+    { label: 'Filfox', href: 'https://filfox.info/' },
+    { label: 'Filscan', href: 'https://filscan.io/en/' },
   ]
 }
 
@@ -58,19 +48,10 @@ function getCommunityItems(t: TranslationFunction): Array<ExpandedNavItem> {
       description: t('descriptions.communityHub'),
       href: PATHS.COMMUNITY_HUB.path,
     },
-    {
-      label: t('events'),
-      description: t('descriptions.events'),
-      href: FILECOIN_FOUNDATION_URLS.events.href,
-    },
-    {
-      label: 'Orbit',
-      description: t('descriptions.orbit'),
-      href: FILECOIN_FOUNDATION_URLS.orbit.href,
-    },
+    { label: t('events'), href: FILECOIN_FOUNDATION_URLS.events.href },
+    { label: 'Orbit', href: FILECOIN_FOUNDATION_URLS.orbit.href },
     {
       label: t('fipsGovernance'),
-      description: t('descriptions.fipsGovernance'),
       href: FILECOIN_FOUNDATION_URLS.governance.href,
     },
   ]
@@ -80,37 +61,50 @@ function getNetworkMonitoringItems(
   t: TranslationFunction,
 ): Array<ExpandedNavItem> {
   return [
-    {
-      label: t('networkStatus'),
-      description: t('descriptions.networkStatus'),
-      href: 'https://status.filecoin.io/',
-    },
+    { label: t('networkStatus'), href: 'https://status.filecoin.io/' },
     {
       label: t('networkHealth'),
-      description: t('descriptions.networkHealth'),
       href: 'https://dashboard.starboard.ventures/',
     },
   ]
 }
 
-function getNetworkExploreItems(
-  t: TranslationFunction,
-): Array<ExpandedNavItem> {
+function getProductItems(t: TranslationFunction): Array<ExpandedNavItem> {
   return [
-    {
-      label: t('learn'),
-      description: t('descriptions.learn'),
-      href: PATHS.LEARN.path,
-    },
     {
       label: t('storeData'),
       description: t('descriptions.storeData'),
       href: PATHS.STORE_DATA.path,
     },
     {
+      label: t('filecoinCloud'),
+      description: t('descriptions.filecoinCloud'),
+      href: FILECOIN_CLOUD_URL,
+    },
+    {
+      label: t('filOne'),
+      description: t('descriptions.filOne'),
+      href: FIL_ONE_URL,
+    },
+    {
       label: t('provideStorage'),
       description: t('descriptions.provideStorage'),
       href: PATHS.PROVIDE_STORAGE.path,
+    },
+  ]
+}
+
+function getToolItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
+    {
+      label: t('sdk'),
+      description: t('descriptions.sdk'),
+      href: FILECOIN_CLOUD_DOCS_URL,
+    },
+    {
+      label: t('cli'),
+      description: t('descriptions.cli'),
+      href: PLACEHOLDER_HREFS.cli,
     },
   ]
 }
@@ -124,15 +118,42 @@ function getDeveloperResourcesItems(
       description: t('descriptions.documentation'),
       href: FILECOIN_DOCS_URL,
     },
+    { label: t('cookbook'), href: FILECOIN_DOCS_URLS.builderCookbook },
+    { label: 'GitHub', href: FILECOIN_URLS.github.href },
+  ]
+}
+
+function getExploreItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
     {
-      label: t('cookbook'),
-      description: t('descriptions.cookbook'),
-      href: FILECOIN_DOCS_URLS.builderCookbook,
+      label: t('developerDocs'),
+      description: t('descriptions.documentation'),
+      href: FILECOIN_DOCS_URL,
     },
     {
-      label: 'GitHub',
-      description: t('descriptions.github'),
-      href: FILECOIN_URLS.github.href,
+      label: t('caseStudies'),
+      description: t('descriptions.caseStudies'),
+      href: PATHS.CASE_STUDIES.path,
+    },
+    {
+      label: t('support'),
+      description: t('descriptions.support'),
+      href: PLACEHOLDER_HREFS.support,
+    },
+  ]
+}
+
+function getCompanyItems(t: TranslationFunction): Array<ExpandedNavItem> {
+  return [
+    {
+      label: t('about'),
+      description: t('descriptions.about'),
+      href: PLACEHOLDER_HREFS.about,
+    },
+    {
+      label: t('communityHub'),
+      description: t('descriptions.communityHub'),
+      href: PATHS.COMMUNITY_HUB.path,
     },
   ]
 }
@@ -144,202 +165,84 @@ function getContributeItems(t: TranslationFunction): Array<ExpandedNavItem> {
       description: t('descriptions.grants'),
       href: FILECOIN_FOUNDATION_URLS.grants.href,
     },
-    {
-      label: t('bugBounty'),
-      description: t('descriptions.bugBounty'),
-      href: FILECOIN_URLS.securityBugBounty.href,
-    },
+    { label: t('bugBounty'), href: FILECOIN_URLS.securityBugBounty.href },
   ]
 }
 
-function productLink(
-  key: ProductKey,
-  t: TranslationFunction,
-  tHome: HomeTranslationFunction,
-): ExpandedNavItem {
-  return {
-    label: tHome(`products.${key}`),
-    description: t(`descriptions.${key}`),
-    href: PRODUCTS[key].href,
-  }
-}
-
-// PLACEHOLDER — grouping mirrors the homepage catalog exactly (data/products.ts
-// is the single source for hrefs), so the two surfaces cannot drift.
-function getProductNavGroups(
-  t: TranslationFunction,
-  tHome: HomeTranslationFunction,
-): Array<NavigationMenuGroup> {
+// Every internal page, so mobile and footer keep them reachable even where
+// the header IA does not list them (Learn, Build on Filecoin, Blog).
+function getInternalNavigationItems(t: TranslationFunction): Array<NavItem> {
   return [
-    {
-      title: tHome('catalog.groups.storage.title'),
-      links: [
-        productLink('warmStorage', t, tHome),
-        productLink('archivalStorage', t, tHome),
-        productLink('filecoinPin', t, tHome),
-      ],
-    },
-    {
-      title: tHome('catalog.groups.retrieval.title'),
-      links: [
-        productLink('retrieval', t, tHome),
-        productLink('ipfsGateways', t, tHome),
-      ],
-    },
-    {
-      title: tHome('catalog.groups.payments.title'),
-      links: [
-        productLink('filecoinPay', t, tHome),
-        productLink('usdfc', t, tHome),
-      ],
-    },
-    {
-      title: tHome('catalog.groups.developerTools.title'),
-      links: [
-        productLink('synapseSdk', t, tHome),
-        productLink('smartContracts', t, tHome),
-        productLink('documentation', t, tHome),
-      ],
-    },
-    {
-      title: tHome('catalog.groups.managedServices.title'),
-      links: [
-        productLink('filOne', t, tHome),
-        productLink('akaveCloud', t, tHome),
-        productLink('lighthouse', t, tHome),
-        productLink('cidgravity', t, tHome),
-        productLink('storacha', t, tHome),
-      ],
-    },
+    { label: t('storeData'), href: PATHS.STORE_DATA.path },
+    { label: t('provideStorage'), href: PATHS.PROVIDE_STORAGE.path },
+    { label: t('caseStudies'), href: PATHS.CASE_STUDIES.path },
+    { label: t('learn'), href: PATHS.LEARN.path },
+    { label: t('buildOnFilecoin'), href: PATHS.BUILD_ON_FILECOIN.path },
+    { label: t('communityHub'), href: PATHS.COMMUNITY_HUB.path },
+    { label: t('blog'), href: PATHS.BLOG.path },
   ]
 }
 
-// PLACEHOLDER — Solutions has no destinations yet (Propaganda positioning
-// work, workstream 1). Each link needs a unique href even though none are
-// real yet: NavigationMenuPanel, MobileNavigation and DesktopNavigation all
-// key their lists by href.
-function getSolutionsNavGroups(
-  t: TranslationFunction,
-): Array<NavigationMenuGroup> {
-  return [
-    {
-      title: t('sections.solutions'),
-      links: [
-        {
-          label: t('solutionWeb3'),
-          description: t('descriptions.solutionWeb3'),
-          href: '#solutions-web3',
-        },
-        {
-          label: t('solutionFinancialCompanies'),
-          description: t('descriptions.solutionFinancialCompanies'),
-          href: '#solutions-financial-companies',
-        },
-        {
-          label: t('solutionAgents'),
-          description: t('descriptions.solutionAgents'),
-          href: '#solutions-agents',
-        },
-        {
-          label: t('solutionStorage'),
-          description: t('descriptions.solutionStorage'),
-          href: '#solutions-storage',
-        },
-        {
-          label: t('solutionVerification'),
-          description: t('descriptions.solutionVerification'),
-          href: '#solutions-verification',
-        },
-        {
-          label: t('solutionIpIndustry'),
-          description: t('descriptions.solutionIpIndustry'),
-          href: '#solutions-ip-industry',
-        },
-      ],
-    },
-  ]
+export function getMobileNavigationItems(t: TranslationFunction) {
+  return getInternalNavigationItems(t)
 }
 
-function getNetworkNavGroups(
-  t: TranslationFunction,
-): Array<NavigationMenuGroup> {
-  return [
-    { title: t('sections.explore'), links: getNetworkExploreItems(t) },
-    {
-      title: t('sections.tools'),
-      links: [...getBlockExplorerItems(t), ...getNetworkMonitoringItems(t)],
-    },
-  ]
-}
-
-function getResourcesNavGroups(
-  t: TranslationFunction,
-): Array<NavigationMenuGroup> {
-  return [
-    {
-      title: t('developers'),
-      links: [...getDeveloperResourcesItems(t), ...getContributeItems(t)],
-    },
-    { title: t('community'), links: getCommunityItems(t) },
-    {
-      title: t('blog'),
-      links: [
-        {
-          label: t('blog'),
-          description: t('descriptions.blog'),
-          href: PATHS.BLOG.path,
-        },
-      ],
-    },
-  ]
-}
-
-function dedupeByHref<Item extends NavItem>(items: Array<Item>): Array<Item> {
-  const seen = new Set<string>()
-
-  return items.filter(({ href }) => {
-    if (seen.has(href)) {
-      return false
-    }
-    seen.add(href)
-    return true
-  })
-}
-
-// Products, Solutions, Network, Resources — the four-way IA from design
-// review (round 1, item 7). `/case-studies` has no home in this structure
-// yet; it stays reachable from the homepage use-case section only.
 export function getHeaderNavigationItems(
   t: TranslationFunction,
-  tHome: HomeTranslationFunction,
-): Array<NavigationMenuItem> {
+): Array<NavItem | NavigationMenuItem> {
   return [
-    { label: t('products'), items: getProductNavGroups(t, tHome) },
-    { label: t('solutions'), items: getSolutionsNavGroups(t) },
-    { label: t('network'), items: getNetworkNavGroups(t) },
-    { label: t('resources'), items: getResourcesNavGroups(t) },
+    {
+      label: t('sections.products'),
+      items: [{ title: t('sections.products'), links: getProductItems(t) }],
+    },
+    {
+      label: t('sections.resources'),
+      items: [
+        { title: t('sections.tools'), links: getToolItems(t) },
+        { title: t('sections.explore'), links: getExploreItems(t) },
+      ],
+      compactLinks: [
+        {
+          title: t('sections.network'),
+          links: [...getNetworkMonitoringItems(t), ...getBlockExplorerItems()],
+        },
+      ],
+    },
+    {
+      label: t('sections.company'),
+      items: [{ title: t('sections.company'), links: getCompanyItems(t) }],
+    },
   ]
-}
-
-export function getMobileNavigationItems(
-  t: TranslationFunction,
-  tHome: HomeTranslationFunction,
-): Array<NavItem> {
-  const allLinks = getHeaderNavigationItems(t, tHome).flatMap((item) =>
-    item.items.flatMap((group) => group.links).map(pickNavItem),
-  )
-
-  return dedupeByHref(allLinks)
 }
 
 export function getFooterNavigationItems(
   t: TranslationFunction,
-  tHome: HomeTranslationFunction,
 ): Array<FooterNavigationItem> {
-  return getHeaderNavigationItems(t, tHome).map(({ label, items }) => ({
-    title: label,
-    items: dedupeByHref(items.flatMap((group) => group.links).map(pickNavItem)),
-  }))
+  return [
+    {
+      title: t('sections.navigation'),
+      items: getInternalNavigationItems(t).filter(
+        ({ href }) => href !== PATHS.COMMUNITY_HUB.path,
+      ),
+    },
+    {
+      title: t('sections.resources'),
+      items: [
+        ...getDeveloperResourcesItems(t).map(pickNavItem),
+        ...getContributeItems(t).map(pickNavItem),
+        { label: t('brandKit'), href: 'https://hub.fil.org/design' },
+        ...getNetworkMonitoringItems(t).map(pickNavItem),
+      ],
+    },
+    {
+      title: t('sections.blockExplorers'),
+      items: getBlockExplorerItems().map(pickNavItem),
+    },
+    {
+      title: t('sections.community'),
+      items: getCommunityItems(t).map(pickNavItem),
+    },
+  ]
 }
 
 export function getFooterLegalItems(t: TranslationFunction): Array<NavItem> {
