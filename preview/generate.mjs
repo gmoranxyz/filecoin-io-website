@@ -19,10 +19,11 @@
  *   --live  origin for internal hrefs (default https://filecoin.io)
  */
 
+import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 
@@ -50,14 +51,24 @@ async function loadChromium() {
     /* not a dependency of this repo; try a global install */
   }
 
+  // `npm root -g` covers Windows and macOS installs the fixed paths miss.
+  let npmRoot = []
+  try {
+    npmRoot = [execSync('npm root -g', { encoding: 'utf8' }).trim()]
+  } catch {
+    /* npm not on PATH; fall back to the fixed paths */
+  }
+
   for (const base of [
+    ...npmRoot,
     '/opt/node22/lib/node_modules',
     '/usr/lib/node_modules',
     '/usr/local/lib/node_modules',
   ]) {
     try {
       const req = createRequire(`${base}/`)
-      const found = pick(await import(req.resolve('playwright')))
+      const entry = pathToFileURL(req.resolve('playwright')).href
+      const found = pick(await import(entry))
       if (found) return found
     } catch {
       /* try the next one */
