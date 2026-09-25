@@ -341,7 +341,11 @@
     "providers": {
       "akave": {
         "description": "AI 就绪的主权对象存储，具备可验证的控制权。",
-        "labels": ["S3 兼容", "AI 就绪", "企业级"],
+        "labels": [
+          "S3 兼容",
+          "AI 就绪",
+          "企业级"
+        ],
         "price": "提供企业版方案",
         "cta": "开始免费试用",
         "keyFeatures": [
@@ -353,7 +357,10 @@
       },
       "aurora": {
         "description": "面向安全、大规模 AI 与数据工作负载的企业级基础设施。",
-        "labels": ["拖放上传", "S3 兼容"],
+        "labels": [
+          "拖放上传",
+          "S3 兼容"
+        ],
         "keyFeatures": [
           "兼容 S3 的对象存储",
           "不可变性与勒索软件防护",
@@ -362,22 +369,38 @@
       },
       "cidgravity": {
         "description": "面向 Nextcloud 的简易去中心化存储后端。",
-        "labels": ["拖放上传"],
+        "labels": [
+          "拖放上传"
+        ],
         "monthlyStorageRate": "/ TB / 月",
         "offer": "前 2 GiB 免费",
-        "keyFeatures": ["Nextcloud 集成", "文件同步与共享", "REST API 编程访问"]
+        "keyFeatures": [
+          "Nextcloud 集成",
+          "文件同步与共享",
+          "REST API 编程访问"
+        ]
       },
       "filOne": {
         "description": "面向大数据集的 S3 兼容对象存储。",
         "monthlyStorageRate": "/ TB / 月",
         "offer": "提供免费试用",
-        "labels": ["拖放上传", "S3 兼容"],
-        "keyFeatures": ["兼容 S3 的 API", "客户端加密", "访问控制"]
+        "labels": [
+          "拖放上传",
+          "S3 兼容"
+        ],
+        "keyFeatures": [
+          "兼容 S3 的 API",
+          "客户端加密",
+          "访问控制"
+        ]
       },
       "filecoinOnchainCloud": {
         "description": "可编程云基础设施，提供可验证的存储、检索和支付。",
         "monthlyStorageRate": "/ TB / 月（最少 2 份副本）",
-        "labels": ["可编程", "API 优先"],
+        "labels": [
+          "可编程",
+          "API 优先"
+        ],
         "keyFeatures": [
           "通过数据持有证明 (PDP) 的可验证存储",
           "通过智能合约的可编程支付 (Filecoin Pay)",
@@ -386,7 +409,10 @@
       },
       "lighthouse": {
         "description": "永久性长期数据存储。",
-        "labels": ["归档", "拖放上传"],
+        "labels": [
+          "归档",
+          "拖放上传"
+        ],
         "monthlyStorageRate": "/ 500 GB / 月",
         "offer": "前 5 GB 免费",
         "keyFeatures": [
@@ -398,14 +424,21 @@
       "ramo": {
         "description": "开放访问的去中心化云网络。",
         "offer": "提供免费试用",
-        "labels": ["S3 兼容"],
-        "keyFeatures": ["兼容 S3 的 API", "开发者 SDK/CLI"]
+        "labels": [
+          "S3 兼容"
+        ],
+        "keyFeatures": [
+          "兼容 S3 的 API",
+          "开发者 SDK/CLI"
+        ]
       },
       "storacha": {
         "description": "高速热存储，实现快速数据检索。",
         "monthlyStorageRate": "/ 100 GB / 月",
         "offer": "前 5 GB 免费",
-        "labels": ["拖放上传"],
+        "labels": [
+          "拖放上传"
+        ],
         "keyFeatures": [
           "快速访问数据",
           "与 IPFS 深度集成",
@@ -762,7 +795,7 @@
     "privacyPolicy": "隐私政策",
     "termsOfUse": "使用条款",
     "managedBy": "管理方",
-    "fipsGovernance": "治理",
+    "fipsGovernance": "FIPs 与治理",
     "networkStatus": "网络状态",
     "networkHealth": "网络健康",
     "documentation": "文档",
@@ -773,7 +806,6 @@
     "bugBounty": "安全漏洞赏金",
     "sections": {
       "understandFilecoin": "了解 Filecoin",
-      "participate": "参与网络",
       "explore": "探索",
       "contribute": "贡献",
       "blockExplorers": "区块浏览器",
@@ -781,18 +813,11 @@
       "getInvolved": "参与其中",
       "navigation": "导航",
       "resources": "资源",
-      "community": "社区",
-      "products": "产品",
-      "tools": "工具",
-      "network": "网络",
-      "company": "公司"
+      "community": "社区"
     },
     "descriptions": {
       "learn": "了解 Filecoin 是什么以及它如何运作",
       "caseStudies": "查看其他人如何在现实世界中使用 Filecoin",
-      "provideStorage": "提供存储容量，在网络上赚取收益",
-      "storeData": "在 Filecoin 网络上存储您的数据",
-      "filOne": "为 AI 时代打造的 S3 兼容对象存储",
       "buildOnFilecoin": "在 Filecoin 网络上构建应用",
       "documentation": "Filecoin 官方文档",
       "cookbook": "使用 Filecoin 和 FVM 构建的秘诀",
@@ -808,20 +833,8 @@
       "orbit": "成为 Filecoin Orbit 大使",
       "fipsGovernance": "提议、讨论和塑造未来升级",
       "networkStatus": "Filecoin 网络的状态",
-      "networkHealth": "Filecoin 链上活动和性能",
-      "filecoinCloud": "可验证的存储、检索与支付，集于一个 SDK",
-      "sdk": "使用 Synapse SDK 构建",
-      "cli": "通过命令行管理存储",
-      "support": "从 Filecoin 社区获得帮助",
-      "about": "谁在构建和维护 Filecoin"
-    },
-    "filecoinCloud": "Filecoin Cloud",
-    "filOne": "Fil One",
-    "sdk": "SDK",
-    "cli": "CLI",
-    "developerDocs": "开发者文档",
-    "support": "支持",
-    "about": "关于"
+      "networkHealth": "Filecoin 链上活动和性能"
+    }
   },
   "newsletterForm": {
     "label": "订阅 Filecoin 更新",

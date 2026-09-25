@@ -1,5 +1,3 @@
-import { clsx } from 'clsx'
-
 import { getUIConfig } from '../../config/ui-config'
 import { isExternalLink } from '../../utils/linkUtils'
 
@@ -22,10 +20,8 @@ export function NavigationMenuLink({
     href,
     label,
     description,
-    className: clsx(
-      'group focus:brand-outline inline-block max-w-56 rounded-lg text-(--color-navigation-menu-panel-icon) hover:bg-(--color-navigation-menu-link-background-hover) focus:bg-(--color-navigation-menu-link-background-hover)',
-      description ? 'p-3' : 'px-3 py-1.5',
-    ),
+    className:
+      'group focus:brand-outline inline-block max-w-56 rounded-xl p-4 text-(--color-navigation-menu-panel-icon) hover:bg-(--color-navigation-menu-link-background-hover) focus:bg-(--color-navigation-menu-link-background-hover)',
     ['aria-label']: `${label} page (${isExternal ? 'external link' : 'internal link'})`,
     ...rest,
   }

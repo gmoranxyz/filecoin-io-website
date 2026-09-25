@@ -8,9 +8,6 @@ import type {
 
 import { PATHS } from '@/constants/paths'
 import {
-  FIL_ONE_URL,
-  FILECOIN_CLOUD_DOCS_URL,
-  FILECOIN_CLOUD_URL,
   FILECOIN_DOCS_URL,
   FILECOIN_DOCS_URLS,
   FILECOIN_FOUNDATION_URLS,
@@ -21,23 +18,28 @@ import { pickNavItem } from '../utils/pickNavItem'
 
 type FooterNavigationItem = { title: string; items: Array<NavItem> }
 
-// Header follows the site IA (Products, Resources, Company). Pages the IA
-// lists but that don't exist yet (Solutions, Agents, Cold Storage, IPFS,
-// Pricing, Careers) are left out until they are built. Links whose
-// destination is still undecided use a unique inert hash so list keys stay
-// distinct.
-const PLACEHOLDER_HREFS = {
-  cli: '#resources-cli',
-  support: '#resources-support',
-  about: '#company-about',
-}
-
-function getBlockExplorerItems(): Array<ExpandedNavItem> {
+function getBlockExplorerItems(t: TranslationFunction): Array<ExpandedNavItem> {
   return [
-    { label: 'Beryx', href: 'https://beryx.io/' },
-    { label: 'Blockscout (FEVM)', href: 'https://www.blockscout.com/' },
-    { label: 'Filfox', href: 'https://filfox.info/' },
-    { label: 'Filscan', href: 'https://filscan.io/en/' },
+    {
+      label: 'Beryx',
+      description: t('descriptions.beryx'),
+      href: 'https://beryx.io/',
+    },
+    {
+      label: 'Blockscout (FEVM)',
+      description: t('descriptions.blockscout'),
+      href: 'https://www.blockscout.com/',
+    },
+    {
+      label: 'Filfox',
+      description: t('descriptions.filfox'),
+      href: 'https://filfox.info/',
+    },
+    {
+      label: 'Filscan',
+      description: t('descriptions.filscan'),
+      href: 'https://filscan.io/en/',
+    },
   ]
 }
 
@@ -48,10 +50,19 @@ function getCommunityItems(t: TranslationFunction): Array<ExpandedNavItem> {
       description: t('descriptions.communityHub'),
       href: PATHS.COMMUNITY_HUB.path,
     },
-    { label: t('events'), href: FILECOIN_FOUNDATION_URLS.events.href },
-    { label: 'Orbit', href: FILECOIN_FOUNDATION_URLS.orbit.href },
+    {
+      label: t('events'),
+      description: t('descriptions.events'),
+      href: FILECOIN_FOUNDATION_URLS.events.href,
+    },
+    {
+      label: 'Orbit',
+      description: t('descriptions.orbit'),
+      href: FILECOIN_FOUNDATION_URLS.orbit.href,
+    },
     {
       label: t('fipsGovernance'),
+      description: t('descriptions.fipsGovernance'),
       href: FILECOIN_FOUNDATION_URLS.governance.href,
     },
   ]
@@ -61,50 +72,15 @@ function getNetworkMonitoringItems(
   t: TranslationFunction,
 ): Array<ExpandedNavItem> {
   return [
-    { label: t('networkStatus'), href: 'https://status.filecoin.io/' },
+    {
+      label: t('networkStatus'),
+      description: t('descriptions.networkStatus'),
+      href: 'https://status.filecoin.io/',
+    },
     {
       label: t('networkHealth'),
+      description: t('descriptions.networkHealth'),
       href: 'https://dashboard.starboard.ventures/',
-    },
-  ]
-}
-
-function getProductItems(t: TranslationFunction): Array<ExpandedNavItem> {
-  return [
-    {
-      label: t('storeData'),
-      description: t('descriptions.storeData'),
-      href: PATHS.STORE_DATA.path,
-    },
-    {
-      label: t('filecoinCloud'),
-      description: t('descriptions.filecoinCloud'),
-      href: FILECOIN_CLOUD_URL,
-    },
-    {
-      label: t('filOne'),
-      description: t('descriptions.filOne'),
-      href: FIL_ONE_URL,
-    },
-    {
-      label: t('provideStorage'),
-      description: t('descriptions.provideStorage'),
-      href: PATHS.PROVIDE_STORAGE.path,
-    },
-  ]
-}
-
-function getToolItems(t: TranslationFunction): Array<ExpandedNavItem> {
-  return [
-    {
-      label: t('sdk'),
-      description: t('descriptions.sdk'),
-      href: FILECOIN_CLOUD_DOCS_URL,
-    },
-    {
-      label: t('cli'),
-      description: t('descriptions.cli'),
-      href: PLACEHOLDER_HREFS.cli,
     },
   ]
 }
@@ -118,42 +94,15 @@ function getDeveloperResourcesItems(
       description: t('descriptions.documentation'),
       href: FILECOIN_DOCS_URL,
     },
-    { label: t('cookbook'), href: FILECOIN_DOCS_URLS.builderCookbook },
-    { label: 'GitHub', href: FILECOIN_URLS.github.href },
-  ]
-}
-
-function getExploreItems(t: TranslationFunction): Array<ExpandedNavItem> {
-  return [
     {
-      label: t('developerDocs'),
-      description: t('descriptions.documentation'),
-      href: FILECOIN_DOCS_URL,
+      label: t('cookbook'),
+      description: t('descriptions.cookbook'),
+      href: FILECOIN_DOCS_URLS.builderCookbook,
     },
     {
-      label: t('caseStudies'),
-      description: t('descriptions.caseStudies'),
-      href: PATHS.CASE_STUDIES.path,
-    },
-    {
-      label: t('support'),
-      description: t('descriptions.support'),
-      href: PLACEHOLDER_HREFS.support,
-    },
-  ]
-}
-
-function getCompanyItems(t: TranslationFunction): Array<ExpandedNavItem> {
-  return [
-    {
-      label: t('about'),
-      description: t('descriptions.about'),
-      href: PLACEHOLDER_HREFS.about,
-    },
-    {
-      label: t('communityHub'),
-      description: t('descriptions.communityHub'),
-      href: PATHS.COMMUNITY_HUB.path,
+      label: 'GitHub',
+      description: t('descriptions.github'),
+      href: FILECOIN_URLS.github.href,
     },
   ]
 }
@@ -165,18 +114,20 @@ function getContributeItems(t: TranslationFunction): Array<ExpandedNavItem> {
       description: t('descriptions.grants'),
       href: FILECOIN_FOUNDATION_URLS.grants.href,
     },
-    { label: t('bugBounty'), href: FILECOIN_URLS.securityBugBounty.href },
+    {
+      label: t('bugBounty'),
+      description: t('descriptions.bugBounty'),
+      href: FILECOIN_URLS.securityBugBounty.href,
+    },
   ]
 }
 
-// Every internal page, so mobile and footer keep them reachable even where
-// the header IA does not list them (Learn, Build on Filecoin, Blog).
 function getInternalNavigationItems(t: TranslationFunction): Array<NavItem> {
   return [
+    { label: t('learn'), href: PATHS.LEARN.path },
+    { label: t('caseStudies'), href: PATHS.CASE_STUDIES.path },
     { label: t('storeData'), href: PATHS.STORE_DATA.path },
     { label: t('provideStorage'), href: PATHS.PROVIDE_STORAGE.path },
-    { label: t('caseStudies'), href: PATHS.CASE_STUDIES.path },
-    { label: t('learn'), href: PATHS.LEARN.path },
     { label: t('buildOnFilecoin'), href: PATHS.BUILD_ON_FILECOIN.path },
     { label: t('communityHub'), href: PATHS.COMMUNITY_HUB.path },
     { label: t('blog'), href: PATHS.BLOG.path },
@@ -192,26 +143,64 @@ export function getHeaderNavigationItems(
 ): Array<NavItem | NavigationMenuItem> {
   return [
     {
-      label: t('sections.products'),
-      items: [{ title: t('sections.products'), links: getProductItems(t) }],
+      label: t('learn'),
+      items: [
+        {
+          title: t('sections.understandFilecoin'),
+          links: [
+            {
+              label: t('learn'),
+              description: t('descriptions.learn'),
+              href: PATHS.LEARN.path,
+            },
+            {
+              label: t('caseStudies'),
+              description: t('descriptions.caseStudies'),
+              href: PATHS.CASE_STUDIES.path,
+            },
+          ],
+        },
+      ],
+    },
+    { label: t('storeData'), href: PATHS.STORE_DATA.path },
+    { label: t('provideStorage'), href: PATHS.PROVIDE_STORAGE.path },
+    {
+      label: t('developers'),
+      items: [
+        {
+          title: t('sections.explore'),
+          links: [
+            {
+              label: t('buildOnFilecoin'),
+              description: t('descriptions.buildOnFilecoin'),
+              href: PATHS.BUILD_ON_FILECOIN.path,
+            },
+            ...getDeveloperResourcesItems(t),
+          ],
+        },
+        { title: t('sections.contribute'), links: getContributeItems(t) },
+      ],
     },
     {
-      label: t('sections.resources'),
+      label: t('network'),
       items: [
-        { title: t('sections.tools'), links: getToolItems(t) },
-        { title: t('sections.explore'), links: getExploreItems(t) },
-      ],
-      compactLinks: [
         {
-          title: t('sections.network'),
-          links: [...getNetworkMonitoringItems(t), ...getBlockExplorerItems()],
+          title: t('sections.blockExplorers'),
+          links: getBlockExplorerItems(t),
+        },
+        {
+          title: t('sections.networkMonitoring'),
+          links: getNetworkMonitoringItems(t),
         },
       ],
     },
     {
-      label: t('sections.company'),
-      items: [{ title: t('sections.company'), links: getCompanyItems(t) }],
+      label: t('community'),
+      items: [
+        { title: t('sections.getInvolved'), links: getCommunityItems(t) },
+      ],
     },
+    { label: t('blog'), href: PATHS.BLOG.path },
   ]
 }
 
@@ -236,7 +225,7 @@ export function getFooterNavigationItems(
     },
     {
       title: t('sections.blockExplorers'),
-      items: getBlockExplorerItems().map(pickNavItem),
+      items: getBlockExplorerItems(t).map(pickNavItem),
     },
     {
       title: t('sections.community'),
