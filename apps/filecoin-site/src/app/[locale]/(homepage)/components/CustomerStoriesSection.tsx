@@ -99,7 +99,13 @@ export function CustomerStoriesSection({
                     'data-selected:border-brand-700 focus:outline-none data-hover:text-(--color-text-base) data-selected:text-(--color-text-base)',
                   )}
                 >
-                  {story.logo}
+                  {/* The logo element is created in page.tsx (a server
+                      component) and arrives here already serialised. React
+                      cannot mark such an element as key-validated, so if it
+                      sits directly in a children array it triggers the
+                      "unique key prop" warning. The fragment makes it a sole
+                      child, which skips that check without adding DOM. */}
+                  <>{story.logo}</>
                   {story.tabLabel}
                 </Tab>
               ))}
